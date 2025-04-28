@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combo pack</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Parkinsans:wght@300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("d18P5-J36Np9TbmVM"); // Initialize EmailJS only once
+        })();
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            padding: 10px 20px;
+            z-index: 9999;
+            /* Ensure the navbar is on top */
+            position: relative;
+            /* Make sure it respects z-index */
+        }
+
+        .navbar a {
+            color: #FD8908;
+            text-decoration: none;
+            padding: 10px;
+            display: inline-block;
+            margin-right: 10px;
+            /* Increased gap */
+            font-family: "Atma", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 17px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #FD8908;
+            border-radius: 30px;
+            margin: 10px;
+            padding: 15px;
+            color: black;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .navbar .menu-container {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 25px;
+            /* Increased gap */
+        }
+
+        .navbar .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .navbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .navbar .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar .auth-links {
+            display: flex;
+            gap: 15px;
+            /* Increased gap */
+        }
+
+        .hero-image {
+            position: relative;
+            width: 100%;
+            height: 730px;
+            /* Adjust the height as needed */
+            background-image: url('background images/combo pack background.jpg');
+            /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-start;
+            /* Aligns items to the top */
+            justify-content: flex-start;
+            /* Aligns items to the left */
+            color: white;
+            margin-top: -8%;
+        }
+
+        .hero-image h1 {
+            font-size: 120px;
+            font-family: "Atma", serif;
+            font-weight: 800;
+            font-style: normal;
+            color: #FD8908;
+            margin-top: 20%;
+            padding-left: 100px;
+        }
+
+        .hero-image h2 {
+            font-size: 90px;
+            font-family: "Atma", serif;
+            font-weight: 600;
+            font-style: normal;
+            color: white;
+            padding-left: 200px;
+            margin-top: -11%;
+        }
+
+        .hero-image p {
+            font-family: "Atma", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 17px;
+            margin: 10px 0 0 0;
+            padding-left: 100px;
+            margin-top: -6%;
+            width: 1100px;
+        }
+
+        .card {
+            display: flex;
+            background-color: #fd8b0830;
+            align-items: center;
+            border: 1px solid #ccc;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 20px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 650px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .card-content-l {
+            text-align: left;
+        }
+
+        .card-content-l a {
+            background-color: #FD8908;
+            padding: 10px;
+            border-radius: 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 12px;
+            margin-left: 35%;
+            margin-top: 10%;
+        }
+
+        .card-content-r {
+            text-align: right;
+        }
+
+        .card-content-r a {
+            background-color: #FD8908;
+            padding: 10px;
+            border-radius: 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 12px;
+            margin-left: 35%;
+            margin-top: 10%;
+        }
+
+
+        .card h2 {
+            margin: 10px 0;
+            margin-left: 20px;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+            font-size: 35px;
+        }
+
+        .card h4 {
+            margin: 10px 0;
+            margin-left: 20px;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 550;
+            font-style: normal;
+            font-size: 20px;
+            line-height: 20px;
+            color: #FD8908;
+        }
+
+        .card p {
+            margin: 10px 0;
+            margin-left: 20px;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 15px;
+        }
+
+        .card-content-l a {
+            background-color: #FD8908;
+            padding: 10px;
+            padding-left: 10%;
+            padding-right: 10%;
+            border-radius: 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 12px;
+            margin-left: 20px;
+            margin-top: 20px;
+            margin-bottom: 10%;
+        }
+
+        .card-content-r a {
+            background-color: #FD8908;
+            padding: 10px;
+            padding-left: 10%;
+            padding-right: 10%;
+            border-radius: 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 12px;
+            margin-left: 20px;
+            margin-top: 20px;
+            margin-bottom: 10%;
+        }
+
+        .foot-content h1 {
+            text-align: center;
+            font-size: 110px;
+            color: #FD8908;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        .foot-content p {
+            text-align: center;
+            font-size: 20px;
+            padding-left: 10%;
+            padding-right: 10%;
+            margin-top: -50px;
+            margin-bottom: 5%;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
+        }
+
+        .social-media a {
+            text-decoration: none;
+            margin-bottom: 3%;
+        }
+
+        .social-media i {
+            font-size: 20px;
+            margin-top: -120px;
+            margin-bottom: 10%;
+        }
+
+        /* cart design css */
+
+        /* cart design css */
+
+        .cart-container {
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 50px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            z-index: 9999;
+            /* Add this line to bring the container to the front */
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .cart-item img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .cart-item button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 6px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .card a {
+            background-color: #FD8908;
+            padding: 10px 15px;
+            border-radius: 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .cart {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+
+        /* notification css */
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        #notification {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+        }
+
+        #notification.show {
+            animation: slideIn 0.5s forwards;
+        }
+
+        #notification.hide {
+            animation: slideOut 0.5s forwards;
+        }
+
+        .auth-link {
+            display: inline-block;
+            padding: 10px;
+            text-decoration: none;
+            color: #000;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .auth-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #FD8908;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .auth-link:hover {
+            color: #FD8908;
+        }
+
+        .auth-link:hover::after {
+            width: 100%;
+        }
+
+        #checkout-btn {
+            background-color: #FD8908;
+            padding: 5px;
+            border-color: #FD8908;
+            border-radius: 10px;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+        }
+        .card-heading-content{
+            font-size: 15px;
+            padding-left: 50px;
+            padding-right: 50px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+        }
+        .card-topic{
+            color: #FD8908;
+            font-size: 45px;
+            padding-left: 50px;
+            padding-right: 50px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="home.html" class="logo">Burger Buddy's</a>
+        <div class="menu-container">
+            <div class="menu">
+                <div class="dropdown">
+                    <a href="#">Category</a>
+                    <div class="dropdown-content">
+                        <a href="chicken.html" data-notification="meka 1">chicken burger</a>
+                        <a href="vege.html" data-notification="meka 1">vegetable burger</a>
+                        <a href="fish.html" data-notification="meka 1">fish burger</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Popular</a>
+                    <div class="dropdown-content">
+                        <a href="home.html" data-notification="meka 1">Hot Deal</a>
+                        <a href="home.html" data-notification="meka 1">Most popular</a>
+                        <a href="home.html" data-notification="meka 1">Combo pack</a>
+                        <a href="home.html" data-notification="meka 1">Why should Try ?</a>
+                    </div>
+                </div>
+                <a href="custermize.html" data-notification="meka 1">Custom page</a>
+                <a href="testimonial.html" data-notification="meka 1">Testimonial</a>
+                <div class="dropdown">
+                    <a href="about.html" data-notification="meka 1">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="about.html" data-notification="meka 1">Team</a>
+                        <a href="about.html" data-notification="meka 1">Story</a>
+                        <a href="about.html" data-notification="meka 1">Careers</a>
+                    </div>
+                </div>
+                <div class="cart" onclick="toggleCart()">
+                    <i class="fa fa-shopping-cart" style="color: #FD8908; font-size: 24px;"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-container" id="cart-container">
+        <h3>Shopping Cart</h3>
+        <div id="cart-items"></div>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button onclick="checkout()" id="checkout-btn">Checkout</button>
+    </div>
+
+    <div class="hero-image">
+        <div>
+            <h1>Burger Buddy's</h1>
+            <h2>Buddy packs..</h2>
+            <p>We're throwing a burger bash, and you're invited! Come sink your teeth into our scrumptious Burger Buddy
+                Pack. It's a burger bonanza you don't want to miss! Warning: Eating our burgers may cause extreme
+                happiness, uncontrollable drooling, and burger cravings. Bring your appetite and a bib—things might get
+                messy! 🍔😂</p>
+        </div>
+    </div>
+    <div class="card-topic">Get More Be Happy !</div>
+    <div class="card-heading-content">"🍔 Why just satisfy your hunger when you can roll out the red carpet for it? 🎬 Our burger combo pack isn’t just a meal—it’s an experience, a masterpiece, a culinary symphony! 🎵 Take a bite of our juicy, flavor-packed burger 🍅🧀, and you'll hear a choir of angels sing (or maybe that's just your happy stomach). Our crispy, golden fries 🍟 are so addictive they deserve their own fan club, and the refreshing drink 🥤 will make you feel like you’re sipping pure happiness. And let’s not forget dessert 🍨🍫—it’s the mic drop 🎤 moment of your meal, leaving your taste buds begging for an encore! This isn’t just food, it’s the celebration your hunger has been waiting for 🎉. Dive in, indulge, and let your foodie dreams come true. 💪✨🍔"</div>
+
+    <div class="card">
+        <img src="combo pack images/combo 1.png" alt="Card Image 1">
+        <div class="card-content-l">
+            <h2>Classic Comfort Combo</h2>
+            <h4>Double chicken burger</h4>
+            <h4>Fish Fillet Burger</h4>
+            <p>A "special combo pack" typically refers to a set of items or services bundled together at a discounted
+                price. These packs are often created to offer more value to the customer by providing multiple related
+                products or services at a lower cost compared to purchasing each item individually.</p><br>
+            <a onclick="addToCart('Special Combo Pack', 94.99, 'combo 1.png')" id="myLink"
+                data-notification="mekae 1">Order Now</a>
+            <div id="notification" class="hidden"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content-r">
+            <h2>Spicy Fiesta Combo</h4>
+                <h4>Spicy chicken burger</h4>
+                <h4>Fish Fillet Burger</h4>
+                <p>A "special combo pack" typically refers to a set of items or services bundled together at a
+                    discounted price. These packs are often created to offer more value to the customer by providing
+                    multiple related products or services at a lower cost compared to purchasing each item individually.
+                </p><br>
+                <a onclick="addToCart('Special Combo Pack', 94.99, 'combo 2.png')" id="myLink"
+                    data-notification="mekae 1">Order Now</a>
+                <div id="notification" class="hidden"></div>
+        </div>
+        <img src="combo pack images/combo 2.png" alt="Card Image 2">
+    </div>
+
+    <div class="card">
+        <img src="combo pack images/combo 3.png" alt="Card Image 1">
+        <div class="card-content-l">
+            <h2>Special Combo Pack</h2>
+            <h4>Double chicken burger</h4>
+            <h4>Fish Fillet Burger</h4>
+            <p>A "special combo pack" typically refers to a set of items or services bundled together at a discounted
+                price. These packs are often created to offer more value to the customer by providing multiple related
+                products or services at a lower cost compared to purchasing each item individually.</p><br>
+            <a onclick="addToCart('Special Combo Pack', 94.99, 'combo 3.png')" id="myLink"
+                data-notification="mekae 1">Order Now</a>
+            <div id="notification" class="hidden"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content-r">
+            <h2>Special Combo Pack</h4>
+                <h4>Double chicken burger</h4>
+                <h4>Fish Fillet Burger</h4>
+                <p>A "special combo pack" typically refers to a set of items or services bundled together at a
+                    discounted price. These packs are often created to offer more value to the customer by providing
+                    multiple related products or services at a lower cost compared to purchasing each item individually.
+                </p><br>
+                <a onclick="addToCart('Special Combo Pack', 94.99, 'combo 4.png')" id="myLink"
+                    data-notification="mekae 1">Order Now</a>
+                <div id="notification" class="hidden"></div>
+        </div>
+        <img src="combo pack images/combo 4.png" alt="Card Image 2">
+    </div>
+
+    <div class="card">
+        <img src="combo pack images/combo 5.png" alt="Card Image 1">
+        <div class="card-content-l">
+            <h2>Special Combo Pack</h2>
+            <h4>Double chicken burger</h4>
+            <h4>Fish Fillet Burger</h4>
+            <p>A "special combo pack" typically refers to a set of items or services bundled together at a discounted
+                price. These packs are often created to offer more value to the customer by providing multiple related
+                products or services at a lower cost compared to purchasing each item individually.</p><br>
+            <a onclick="addToCart('Special Combo Pack', 94.99, 'combo 5.png')" id="myLink"
+                data-notification="mekae 1">Order Now</a>
+            <div id="notification" class="hidden"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content-r">
+            <h2>Special Combo Pack</h4>
+                <h4>Double chicken burger</h4>
+                <h4>Fish Fillet Burger</h4>
+                <p>A "special combo pack" typically refers to a set of items or services bundled together at a
+                    discounted price. These packs are often created to offer more value to the customer by providing
+                    multiple related products or services at a lower cost compared to purchasing each item individually.
+                </p><br>
+                <a onclick="addToCart('Special Combo Pack', 94.99, 'combo 6.png')" id="myLink"
+                    data-notification="mekae 1">Order Now</a>
+                <div id="notification" class="hidden"></div>
+        </div>
+        <img src="combo pack images/combo 6.png" alt="Card Image 2">
+    </div>
+
+    <div class="foot-content">
+        <h1>Get More Be Happy !</h1>
+        <p>"Can I order a burger so enormous that not even my biggest worries could take a bite out of it? I'm talking
+            about a burger so colossal that it would take me a week just to finish the toppings! Because let's be
+            honest, a truly massive burger is the perfect antidote for any bad day. 🍔😆"</p>
+    </div>
+
+    <div class="social-media">
+        <a href="https://facebook.com" target="_blank">
+            <i class="fa-brands fa-facebook " style="color: #fd8908;"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <i class="fa-brands fa-twitter " style="color: #fd8908;"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <i class="fa-brands fa-instagram " style="color: #fb8909;"></i>
+        </a>
+    </div>
+
+    <script>
+        // cart animation ant function 
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || []; // Load cart from localStorage
+
+        function addToCart(item, price, image) {
+            cart.push({ item, price, image });
+            localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            cartCount.textContent = cart.length;
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((cartItem, index) => {
+                total += cartItem.price;
+                cartItems.innerHTML += `<div class="cart-item">
+                    <img src="${cartItem.image}" alt="${cartItem.item}">
+                    <span>${cartItem.item} - $${cartItem.price.toFixed(2)}</span>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                </div>`;
+            });
+
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            updateCart();
+        }
+
+        function toggleCart() {
+            const cartContainer = document.getElementById('cart-container');
+            cartContainer.style.display = cartContainer.style.display === 'block' ? 'none' : 'block';
+        }
+
+
+        function checkout() {
+            // Format cart items for email
+            let cartDetails = cart.map(item => `${item.item} - $${item.price.toFixed(2)}`).join("\n");
+
+            // Calculate total price
+            let totalPrice = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+
+            // Send email
+            emailjs.send("service_nrdmwof", "template_kecvg0i", {
+                cart_details: cartDetails,
+                total_price: totalPrice
+            })
+                .then(function (response) {
+                    alert("Order placed successfully! Check your email for details.");
+                    cart = []; // Clear cart
+                    localStorage.removeItem('cart'); // Clear localStorage
+                    updateCart();
+                }, function (error) {
+                    alert("Failed to send order. Please try again.");
+                    console.error("EmailJS Error:", error);
+                });
+        }
+
+        updateCart(); // Initial cart update
+
+    </script>
+
+    <!-- notification Js -->
+    <script>
+        document.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                var href = this.getAttribute('href'); // Get the URL of the link
+                var dataNotification = this.getAttribute('data-notification'); // Get the notification text
+
+                if (href !== '#') { // Only proceed if the link is not a placeholder
+                    if (dataNotification) { // Show notification if data-notification is present
+                        event.preventDefault();
+                        var notification = document.getElementById('notification');
+                        notification.textContent = dataNotification;
+                        notification.classList.remove('hidden');
+                        notification.classList.add('show');
+                        setTimeout(function () {
+                            notification.classList.remove('show');
+                            notification.classList.add('hide');
+                            setTimeout(function () {
+                                notification.classList.add('hidden');
+                                notification.classList.remove('hide');
+
+                                if (link.closest('.navbar')) {
+                                    window.location.href = href; // Redirect to the URL after notification is shown (for navbar links)
+                                }
+                            }, 500); // Wait for the slide-out transition to complete before hiding
+                        }, 3000); // Hide notification after 3 seconds
+                    } else {
+                        if (link.closest('.navbar')) {
+                            window.location.href = href; // Redirect to the URL directly if no notification is present (for navbar links)
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

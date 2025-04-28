@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <title>sign up page</title>
+    
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: "Atma", serif;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            padding: 10px 20px;
+            z-index: 9999;
+            position: relative;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        .navbar a {
+            color: #FD8908;
+            text-decoration: none;
+            padding: 10px;
+            display: inline-block;
+            margin-right: 10px;
+            font-family: "Atma", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 17px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .navbar a:hover {
+            transform: translateY(-3px);
+            color: #ff6b00;
+        }
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #FD8908;
+            border-radius: 30px;
+            margin: 10px;
+            padding: 15px;
+            color: black;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .navbar .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(253, 137, 8, 0.4);
+        }
+        .navbar .menu-container {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .navbar .menu {
+            display: flex;
+            gap: 25px;
+        }
+        .navbar .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .navbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .navbar .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar .dropdown-content a:hover {
+            background-color: #FD890847;
+            transform: translateX(5px);
+        }
+        .navbar .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .navbar .auth-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Section styles */
+        .section {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            min-height: 80vh;
+        }
+        .left-side {
+            position: relative;
+            flex: 1;
+            margin-top: 20px;
+            animation: slideInLeft 1s ease-out;
+        }
+        .left-side img {
+            position: relative;
+            width: 95%;
+            height: auto;
+            margin-top: -90px;
+            transition: transform 0.6s ease;
+        }
+        .left-side:hover img {
+            transform: scale(1.03);
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #FD8908;
+            opacity: 0.2;
+            transition: transform 1.5s ease, opacity 1.5s ease;
+        }
+        .circle1 {
+            width: 300px;
+            height: 300px;
+            top: 150px;
+            left: 35px;
+            animation: pulse 6s infinite alternate;
+        }
+        .circle2 {
+            width: 250px;
+            height: 250px;
+            bottom: 25px;
+            right: 50px;
+            top: 12px;
+            left: 320px;
+            animation: pulse 7s 0.5s infinite alternate;
+        }
+        .right-side {
+            flex: 1;
+            text-align: center;
+            padding: 0 -20px;
+            margin-top: -170px;
+            animation: slideInRight 1s ease-out;
+        }
+        .right-side h3 {
+            margin-top: 60px;
+            margin-bottom: 10px;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+            font-style: normal;
+            color: #FD8908;
+            font-size: 80px;
+            animation: popIn 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+        .right-side p {
+            margin-bottom: 20px;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            animation: fadeIn 1s ease;
+        }
+        input::placeholder{
+            color: black;
+            opacity: 0.6;
+        }
+        .right-side input[type="text"], .right-side textarea, 
+        .right-side input[type="email"], .right-side input[type="password"] {
+            width: 80%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid rgba(0,0,0,0.2);
+            border-radius: 15px;
+            background-color: #fd8b0847;
+            color: black;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 rgba(253, 137, 8, 0.1);
+            opacity: 0;
+            transform: translateX(20px);
+            animation: slideInForm 0.5s ease forwards;
+        }
+        .right-side input:nth-child(1) { animation-delay: 0.1s; }
+        .right-side input:nth-child(2) { animation-delay: 0.2s; }
+        .right-side input:nth-child(3) { animation-delay: 0.3s; }
+        .right-side input:nth-child(4) { animation-delay: 0.4s; }
+
+        .right-side input:focus {
+            outline: none;
+            border-color: #FD8908;
+            box-shadow: 0 0 10px rgba(253, 137, 8, 0.3);
+            transform: scale(1.02);
+        }
+        .btn-submit {
+            padding: 10px 30px;
+            border: none;
+            border-radius: 15px;
+            background-color: #FD8908;
+            color: black;
+            cursor: pointer;
+            margin-left: -87%;
+            font-family: "Atma", serif;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 0.5s ease 0.7s forwards;
+            box-shadow: 0 4px 15px rgba(253, 137, 8, 0.3);
+        }
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(253, 137, 8, 0.4);
+        }
+        .btn-submit:active {
+            transform: translateY(1px);
+        }
+        .btn-submit::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        .btn-submit:hover::after {
+            animation: ripple 1s ease-out;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 15px;
+            width: 60%;
+            max-width: 500px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            animation: slideDown 0.4s ease;
+        }
+        .modal-title {
+            color: #FD8908;
+            margin-top: 0;
+            font-family: "Atma", serif;
+            font-weight: 700;
+        }
+        .user-details {
+            text-align: left;
+            margin: 20px 0;
+        }
+        .user-details p {
+            margin: 8px 0;
+            font-family: "Atma", serif;
+        }
+        .user-details strong {
+            color: #FD8908;
+            margin-right: 10px;
+        }
+        .modal-btn {
+            padding: 8px 24px;
+            border: none;
+            border-radius: 10px;
+            background-color: #FD8908;
+            color: black;
+            cursor: pointer;
+            font-family: "Atma", serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(253, 137, 8, 0.3);
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { 
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from { 
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInForm {
+            from { 
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            70% {
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.2;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.25;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                opacity: 1;
+                transform: scale(0, 0);
+                transform-origin: center;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(20, 20);
+                transform-origin: center;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="home.html" class="logo">Burger Buddy's</a>
+        <div class="menu-container">
+            <div class="menu">
+                <div class="dropdown">
+                    <a href="#">Category</a>
+                    <div class="dropdown-content">
+                        <a href="chicken.html">chicken burger</a>
+                        <a href="vege.html">vegetable burger</a>
+                        <a href="fish.html">fish burger</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Popular</a>
+                    <div class="dropdown-content">
+                        <a href="home.html">Hot Deal</a>
+                        <a href="home.html">Most populer</a>
+                        <a href="home.html">Combo pack</a>
+                        <a href="home.html">Why should Try ?</a>
+                    </div>
+                </div>
+                <a href="custermize.html">Custom page</a>
+                <a href="testimonial.html">Testimonial</a>
+                <div class="dropdown">
+                    <a href="about.html">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">Team</a>
+                        <a href="about.html">Story</a>
+                        <a href="about.html">Careers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="auth-links">
+            <a href="login.html">Login</a>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="left-side">
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+            <img src="background images/main_background.png" alt="Your Image">
+        </div>
+        <div class="right-side">
+            <h3>Burger Buddy's</h3>
+            <p>When starting a new logging session, it's important to ensure that all relevant details are accurately recorded. This includes the date, time, and specific activities being logged. Proper documentation helps maintain a clear and organized record, making it easier to review and analyze the data later. By consistently logging new activities, you can track progress, identify patterns, and make informed decisions based on accurate information.</p>
+            <div class="signup_content">
+                <form id="signupForm">
+                    <input type="text" placeholder="First Name" id="fname" required>
+                    <input type="text" placeholder="Last Name" id="lname" required>
+                    <input type="email" placeholder="Email" id="email" required>
+                    <input type="password" placeholder="Password" id="password" required>
+                </form>
+            </div>
+            <p style="width: 500px; text-align: left;">To ensure a smooth and accurate process, please make sure to add the correct details. Thank you for your cooperation !</p>
+            <button class="btn-submit" id="submitBtn">Submit</button>
+        </div>
+    </section>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Confirm Your Details</h2>
+            <div class="user-details" id="userDetails">
+                <!-- User details will be inserted here -->
+            </div>
+            <button class="modal-btn" id="confirmBtn">OK</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitBtn = document.getElementById('submitBtn');
+            const confirmBtn = document.getElementById('confirmBtn');
+            const modal = document.getElementById('confirmationModal');
+            const userDetails = document.getElementById('userDetails');
+            
+            // Submit button click handler
+            submitBtn.addEventListener('click', function(e) {
+                // Get form values
+                const firstName = document.getElementById('fname').value;
+                const lastName = document.getElementById('lname').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                // Validate form
+                if (!firstName || !lastName || !email || !password) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+                
+                // Create user object
+                const userData = {
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    password: password
+                };
+                
+                // Store in local storage
+                localStorage.setItem('userData', JSON.stringify(userData));
+                
+                // Display user details in the modal
+                userDetails.innerHTML = `
+                    <p><strong>First Name:</strong> ${firstName}</p>
+                    <p><strong>Last Name:</strong> ${lastName}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                `;
+                
+                // Show the modal
+                modal.style.display = 'block';
+            });
+            
+            // Confirm button click handler
+            confirmBtn.addEventListener('click', function() {
+                // Close the modal
+                modal.style.display = 'none';
+                
+                // Redirect to login page
+                window.location.href = 'login.html';
+            });
+            
+            // Close modal if user clicks outside of it
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

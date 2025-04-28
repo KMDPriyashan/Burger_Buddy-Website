@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('background images/testimonial back.jpg') no-repeat center center fixed;
+            background-size: cover;
+
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            /* Center the content */
+            align-items: center;
+            background-color: transparent;
+            padding: 10px 20px;
+            z-index: 9999;
+            /* Ensure the navbar is on top */
+            position: fixed;
+            /* Fixed at the top */
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 60px;
+            /* Set a fixed height for the navbar */
+            margin-top: 20px;
+        }
+
+        .navbar a {
+            color: #FD8908;
+            text-decoration: none;
+            padding: 10px;
+            display: inline-block;
+            margin-right: 10px;
+            /* Increased gap */
+            font-family: "Atma", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 17px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #FD8908;
+            border-radius: 30px;
+            margin: 10px;
+            padding: 15px;
+            color: black;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .navbar .menu-container {
+            display: flex;
+            justify-content: center;
+            /* Center the container */
+            flex-grow: 1;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 30px;
+            /* Increased gap */
+
+        }
+
+        .navbar .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .navbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            transition: opacity 0.3s ease-in-out;
+
+        }
+
+        .navbar .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar .auth-links {
+            display: flex;
+            gap: 15px;
+            /* Increased gap */
+        }
+
+        .container {
+            margin-top: 38px;
+            /* Space for the fixed navbar */
+            height: calc(100% - 60px);
+            /* Full height minus navbar height */
+
+            text-align: center;
+            color: #fff;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+
+        }
+
+        .testimonials .testimonial {
+            padding: 20px;
+            border-radius: 10px;
+            font-family: "Atma", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .testimonials .testimonial h3 {
+            font-size: 20px;
+        }
+
+        .form {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 10px auto;
+            width: 50%;
+            border-radius: 10px;
+        }
+
+        .form input{
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            
+        }
+        .form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            
+        }
+
+        .form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FD8908;
+            color: #fff;
+            cursor: pointer;
+            text-align: right;
+        }
+
+        .form button:hover {
+            background-color: #218838;
+        }
+
+        .heading {
+            text-align: center;
+            margin-top: 20%;
+            /* Adjust the margin as needed */
+        }
+        .heading h1{
+            font-family: "Atma", serif;
+            font-weight: 600;
+            font-style: normal;
+            font-size: 60px;
+            color: white;
+            margin-top: -13%;
+
+        }
+        .heading p{
+            font-family: "Atma", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 18px;
+            color: white;
+            margin-left: 12%;
+            margin-right: 12%;
+            margin-top: -30px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- nav bar -->
+    <div class="navbar">
+        <a href="home.html" class="logo">Burger Buddy's</a>
+        <div class="menu-container">
+            <div class="menu">
+                <div class="dropdown">
+                    <a href="home.html">Category</a>
+                    <div class="dropdown-content">
+                        <a href="chicken.html">chicken burger</a>
+                        <a href="vege.html">vegetable burger</a>
+                        <a href="fish.html">fish burger</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="home.html">Popular</a>
+                    <div class="dropdown-content">
+                        <a href="home.html">Hot Deal</a>
+                        <a href="home.html">Most popular</a>
+                        <a href="home.html">Combo pack</a>
+                        <a href="home.html">Why should Try ?</a>
+                    </div>
+                </div>
+                <a href="custermize.html">Custom page</a>
+                <a href="testimonial.html">Testimonial</a>
+                <div class="dropdown">
+                    <a href="about.html">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">Team</a>
+                        <a href="about.html">Story</a>
+                        <a href="about.html">Careers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- heading section -->
+    <div class="heading">
+        <h1>Customer Testimonials</h1>
+        <p>Glowing testimonials can be utilized in marketing campaigns, both online and offline, to highlight the
+            restaurant's strengths. Ultimately, positive reviews give the restaurant a competitive edge, setting it
+            apart from others in the industry.</p>
+    </div>
+    <div class="container">
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>" The burgers here are out of this world! Juicy, flavorful, and cooked to perfection. I've never had a better burger! "</p>
+                <h3>- William shaeps</h3>
+            </div>
+            <div class="testimonial">
+                <p>" Amazing service and delicious food. The cheeseburger is my new favorite. I'll definitely be coming back! "</p>
+                <h3>- alex carey</h3>
+            </div>
+            <div class="testimonial">
+                <p>" The burgers here are out of this world! Juicy, flavorful, and cooked to perfection. I've never had a better burger! "</p>
+                <h3>- stew smith</h3>
+            </div>
+            <div class="testimonial">
+                <p>" The burgers here are out of this world! Juicy, flavorful, and cooked to perfection. I've never had a better burger! "</p>
+                <h3>- Virat Koli</h3>
+            </div>
+            <div class="testimonial">
+                <p>" The burgers here are out of this world! Juicy, flavorful, and cooked to perfection. I've never had a better burger! "</p>
+                <h3>- cris Gale</h3>
+            </div>
+            
+        </div>
+        <div class="form">
+            <h2>Submit Your Testimonial</h2>
+            <form id="testimonialForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <textarea id="comment" placeholder="Your Comment" required></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('testimonialForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+
+            const testimonialContainer = document.createElement('div');
+            testimonialContainer.classList.add('testimonial');
+
+            const commentElement = document.createElement('p');
+            commentElement.textContent = comment;
+
+            const nameElement = document.createElement('h4');
+            nameElement.textContent = `- ${name}`;
+
+            testimonialContainer.appendChild(commentElement);
+            testimonialContainer.appendChild(nameElement);
+
+            document.querySelector('.testimonials').appendChild(testimonialContainer);
+
+            document.getElementById('testimonialForm').reset();
+        });
+    </script>
+</body>
+
+</html>

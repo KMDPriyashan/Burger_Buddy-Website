@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vege Burger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("d18P5-J36Np9TbmVM"); // Initialize EmailJS only once
+        })();
+    </script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: "Atma", serif;
+        }
+
+        .full-screen-image {
+            background-image: url('background images/Vege background.jpg');
+            /* Replace with your image URL */
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .text-on-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: -40%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+        .text-on-image h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+
+        .text-on-image h2 {
+            font-size: 140px;
+            /* Increased font size */
+            color: #FD8908;
+            margin: 0;
+        }
+
+        .text-on-image p {
+            font-size: 20px;
+            margin: 25px 0 0;
+        }
+
+        .cards-section {
+
+            padding: 40px 0;
+        }
+
+        .cards-section h1 {
+            text-align: center;
+            font-size: 60px;
+            margin-bottom: -5px;
+            color: #FD8908;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .card {
+            background-color: #fd8b0830;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.5s ease;
+            margin-top: 30px;
+            height: 530px;
+        }
+
+        .card:hover {
+            transform: translateY(-30px) rotate(-2deg);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+
+        }
+
+        .card-body {
+            padding: 5px;
+        }
+
+        .card-body a {
+            background-color: #FD8908;
+            padding: 10px;
+            border-radius: 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 12px;
+            margin-left: 35%;
+            margin-top: 10%;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-align: center;
+
+
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: black;
+            text-align: center;
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            /* Center the content */
+            align-items: center;
+            background-color: transparent;
+            padding: 10px 20px;
+            z-index: 9999;
+            /* Ensure the navbar is on top */
+            position: relative;
+            /* Make sure it respects z-index */
+            position: absolute;
+        }
+
+        .navbar a {
+            color: #FD8908;
+            text-decoration: none;
+            padding: 10px;
+            display: inline-block;
+            margin-right: 10px;
+            /* Increased gap */
+            font-family: "Atma", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 17px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #FD8908;
+            border-radius: 30px;
+            margin: 10px;
+            padding: 15px;
+            color: black;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .navbar .menu-container {
+            display: flex;
+            justify-content: center;
+            /* Center the container */
+            flex-grow: 1;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 30px;
+            /* Increased gap */
+
+        }
+
+        .navbar .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .navbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            transition: opacity 0.3s ease-in-out;
+
+        }
+
+        .navbar .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar .auth-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .foot-content h1 {
+            text-align: center;
+            font-size: 100px;
+            color: #FD8908;
+        }
+
+        .foot-content p {
+            text-align: center;
+            font-size: 20px;
+            padding-left: 10%;
+            padding-right: 10%;
+            margin-top: -50px;
+            margin-bottom: 5%;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 6%;
+        }
+
+        .social-media a {
+            text-decoration: none;
+        }
+
+        .social-media i {
+            font-size: 20px;
+            margin-top: -120px;
+            margin-bottom: 10%;
+        }
+
+        .cart-container {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 50px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            z-index: 9999;
+            /* Add this line to bring the container to the front */
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .cart-item img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .cart-item button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 6px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .card a {
+            background-color: #FD8908;
+            padding: 10px 15px;
+            border-radius: 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .cart {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        /* notification css */
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        #notification {
+            background-color: black;
+            color: white;
+            padding: 15px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        #notification.show {
+            animation: slideIn 0.5s forwards;
+        }
+
+        #notification.hide {
+            animation: slideOut 0.5s forwards;
+        }
+
+        .heading-content {
+            padding-left: 90px;
+            padding-right: 90px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        #checkout-btn{
+            background-color: #FD8908;
+            padding: 5px;
+            border-color: #FD8908;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav bar -->
+    <div class="navbar">
+        <a href="home.html" class="logo">Burger Buddy's</a>
+        <div class="menu-container">
+            <div class="menu">
+                <div class="dropdown">
+                    <a href="#">Category</a>
+                    <div class="dropdown-content">
+                        <a href="chicken.html" data-notification="meka 1">chicken burger</a>
+                        <a href="vege.html" data-notification="meka 1">vegetable burger</a>
+                        <a href="fish.html" data-notification="meka 1">fish burger</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Popular</a>
+                    <div class="dropdown-content">
+                        <a href="home.html" data-notification="meka 1">Hot Deal</a>
+                        <a href="home.html" data-notification="meka 1">Most popular</a>
+                        <a href="home.html" data-notification="meka 1">Combo pack</a>
+                        <a href="home.html" data-notification="meka 1">Why should Try ?</a>
+                    </div>
+                </div>
+                <a href="custermize.html" data-notification="meka 1">Custom page</a>
+                <a href="testimonial.html" data-notification="meka 1">Testimonial</a>
+                <div class="dropdown">
+                    <a href="about.html" data-notification="meka 1">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="about.html" data-notification="meka 1">Team</a>
+                        <a href="about.html" data-notification="meka 1">Story</a>
+                        <a href="about.html" data-notification="meka 1">Careers</a>
+                    </div>
+                </div>
+                <div class="cart" onclick="toggleCart()">
+                    <i class="fa fa-shopping-cart" style="color: #FD8908; font-size: 24px;"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="cart-container" id="cart-container">
+        <h3>Shopping Cart</h3>
+        <div id="cart-items"></div>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button onclick="checkout()" id="checkout-btn">Checkout</button>
+    </div>
+
+    <!-- Full Screen Image with Text -->
+    <div class="full-screen-image">
+        <div class="text-on-image">
+            <h1>Welcome to Burger Buddy's</h1>
+            <h2>Vegetable Burger</h2>
+            <p>" Looking for a meal that hits all the right notes? Our chicken burger is not just a treat—it's an
+                experience. Picture this: a perfectly seasoned chicken patty, crispy on the outside and incredibly juicy
+                on the inside, tucked into a freshly toasted bun that's soft yet sturdy enough to hold all that
+                goodness. "</p>
+        </div>
+    </div>
+    <!-- grill chicken Card Section -->
+    <div class="cards-section">
+        <h1>Classic Veggie Burger</h1>
+        <div class="heading-content">Get ready to feast on veggie goodness like never before at our Classic Veggie
+            Burger spot! 🌱🍔 Packed with garden-fresh flavors and patties so delicious they’ll have even the carnivores
+            curious, our veggie burgers are the MVPs of meatless perfection. With every bite, you’ll experience a
+            classic so satisfying, it’s like a high-five for your taste buds. So, bring your appetite, leave the beef at
+            the door, and let’s burger it up—veggie style! 🥳🥬</div>
+        <div class="card-container">
+            <div class="card">
+                <img src="vege burger/vege 1.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Traditional Bean Veggie Burger</h5>
+                    <p class="card-text">" Experience the magic of taste—our Classic Grilled Chicken Burger awaits you! "</p>
+                    <a onclick="addToCart('Bean Veggie Burger', 9.99, 'vege burger/vege 1.png')" id="myLink"
+                        data-notification="Congrats! 🎉 You've snagged a masterpiece 🍴🔥—your taste buds are partying hard! 🎈✨">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="vege burger/vege 2.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Lentil Veggie Burger</h5>
+                    <p class="card-text">" Experience the magic of taste—our Classic Grilled Chicken Burger awaits you! "</p>
+                    <a onclick="addToCart('Lentil Veggie Burger', 9.99, 'vege burger/vege 2.png')" id="myLink"
+                        data-notification="Congrats! 🎉 You've snagged a masterpiece 🍴🔥—your taste buds are partying hard! 🎈✨">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="vege burger/vege 3.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Chickpea Veggie Burger</h5>
+                    <p class="card-text">" Experience the magic of taste—our Classic Grilled Chicken Burger awaits you! "</p>
+                    <a onclick="addToCart('Chickpea Veggie Burger', 9.99, 'vege burger/vege 3.png')" id="myLink"
+                        data-notification="Congrats! 🎉 You've snagged a masterpiece 🍴🔥—your taste buds are partying hard! 🎈✨">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="vege burger/vege 4.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Mushroom Black Bean Burger</h5>
+                    <p class="card-text">" Experience the magic of taste—our Classic Grilled Chicken Burger awaits you! "</p>
+                    <a onclick="addToCart('Mushroom Black Bean Burger', 9.99, 'vege burger/vege 4.png')" id="myLink"
+                        data-notification="Congrats! 🎉 You've snagged a masterpiece 🍴🔥—your taste buds are partying hard! 🎈✨">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="vege burger/vege 5.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Sweet Potato Veggie Burger</h5>
+                    <p class="card-text">" Experience the magic of taste—our Classic Grilled Chicken Burger awaits you! "</p>
+                    <a onclick="addToCart('Sweet Potato Burger', 9.99, 'vege burger/vege 5.png')" id="myLink"
+                        data-notification="Congrats! 🎉 You've snagged a masterpiece 🍴🔥—your taste buds are partying hard! 🎈✨">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="vege burger/vege 6.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Spinach and Feta Veggie Burger</h5>
+                    <p class="card-text">" Experience the magic of taste—our Classic Grilled Chicken Burger awaits you! "</p>
+                    <a onclick="addToCart('SSpinach and Feta Burger', 9.99, 'vege burger/vege 6.png')" id="myLink"
+                        data-notification="Congrats! 🎉 You've snagged a masterpiece 🍴🔥—your taste buds are partying hard! 🎈✨">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fried Chicken card section  -->
+
+    <div class="cards-section">
+        <h1>Mushroom Burger</h1>
+        <div class="heading-content">Step into a world of umami magic with our Mushroom Burger, where the mushrooms are
+            the star of the show and the flavor steals the spotlight! 🍄🍔 Juicy, earthy, and downright irresistible,
+            this burger is so good even the cows are jealous. Whether you're a mushroom maniac or just mushroom-curious,
+            one bite will have you saying, “Why didn’t I try this sooner?” So, grab your friends, your appetite, and
+            your love for all things fungi—because this is one burger adventure you won’t forget! 🎉🍄
+
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <img src="vege burger/mashroom 1.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Portobello Mushroom Burger</h5>
+                    <p class="card-text">" Experience the magic of taste—our Classic Grilled Chicken Burger awaits you! "</p>
+                    <a onclick="addToCart('Portobello Mushroom Burger', 9.99, 'vege burger/mashroom 1.png')" id="myLink"
+                        data-notification="Congrats! 🎉 You've snagged a masterpiece 🍴🔥—your taste buds are partying hard! 🎈✨">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="vege burger/mashroom 2.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Cheese Mushroom Burger</h5>
+                    <p class="card-text">" Experience the magic of taste—our Classic Grilled Chicken Burger awaits you! "</p>
+                    <a onclick="addToCart('Cheese Mushroom Burger', 9.99, 'vege burger/mashroom 2.png')" id="myLink"
+                        data-notification="Congrats! 🎉 You've snagged a masterpiece 🍴🔥—your taste buds are partying hard! 🎈✨">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="vege burger/mashroom 3.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">BBQ Mushroom Burger</h5>
+                    <p class="card-text">" Experience the magic of taste—our Classic Grilled Chicken Burger awaits you! "</p>
+                    <a onclick="addToCart('BBQ Mushroom Burger', 9.99, 'vege burger/mashroom 3.png')" id="myLink"
+                        data-notification="Congrats! 🎉 You've snagged a masterpiece 🍴🔥—your taste buds are partying hard! 🎈✨">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- fotter content -->
+
+    <div class="foot-content">
+        <h1>Get More Be Happy !</h1>
+        <p>"Can I order a burger so enormous that not even my biggest worries could take a bite out of it? I'm talking
+            about a burger so colossal that it would take me a week just to finish the toppings! Because let's be
+            honest, a truly massive burger is the perfect antidote for any bad day. 🍔😆"</p>
+    </div>
+
+    <div class="social-media">
+        <a href="https://facebook.com" target="_blank">
+            <i class="fa-brands fa-facebook " style="color: #fd8908;"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <i class="fa-brands fa-twitter " style="color: #fd8908;"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <i class="fa-brands fa-instagram " style="color: #fb8909;"></i>
+        </a>
+    </div>
+
+    <script>
+        // cart animation ant function 
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || []; // Load cart from localStorage
+
+        function addToCart(item, price, image) {
+            cart.push({ item, price, image });
+            localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            cartCount.textContent = cart.length;
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((cartItem, index) => {
+                total += cartItem.price;
+                cartItems.innerHTML += `<div class="cart-item">
+                    <img src="${cartItem.image}" alt="${cartItem.item}">
+                    <span>${cartItem.item} - $${cartItem.price.toFixed(2)}</span>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                </div>`;
+            });
+
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            updateCart();
+        }
+
+        function toggleCart() {
+            const cartContainer = document.getElementById('cart-container');
+            cartContainer.style.display = cartContainer.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function checkout() {
+            // Format cart items for email
+            let cartDetails = cart.map(item => `${item.item} - $${item.price.toFixed(2)}`).join("\n");
+
+            // Calculate total price
+            let totalPrice = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+
+            // Send email
+            emailjs.send("service_nrdmwof", "template_kecvg0i", {
+                cart_details: cartDetails,
+                total_price: totalPrice
+            })
+                .then(function (response) {
+                    alert("Order placed successfully! Check your email for details.");
+                    cart = []; // Clear cart
+                    localStorage.removeItem('cart'); // Clear localStorage
+                    updateCart();
+                }, function (error) {
+                    alert("Failed to send order. Please try again.");
+                    console.error("EmailJS Error:", error);
+                });
+        }
+
+        updateCart(); // Initial cart update
+
+    </script>
+
+    <script>
+        document.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                var href = this.getAttribute('href'); // Get the URL of the link
+                var dataNotification = this.getAttribute('data-notification'); // Get the notification text
+
+                if (href !== '#') { // Only proceed if the link is not a placeholder
+                    if (dataNotification) { // Show notification if data-notification is present
+                        event.preventDefault();
+                        var notification = document.getElementById('notification');
+                        notification.textContent = dataNotification;
+                        notification.classList.remove('hidden');
+                        notification.classList.add('show');
+                        setTimeout(function () {
+                            notification.classList.remove('show');
+                            notification.classList.add('hide');
+                            setTimeout(function () {
+                                notification.classList.add('hidden');
+                                notification.classList.remove('hide');
+
+                                if (link.closest('.navbar')) {
+                                    window.location.href = href; // Redirect to the URL after notification is shown (for navbar links)
+                                }
+                            }, 500); // Wait for the slide-out transition to complete before hiding
+                        }, 3000); // Hide notification after 3 seconds
+                    } else {
+                        if (link.closest('.navbar')) {
+                            window.location.href = href; // Redirect to the URL directly if no notification is present (for navbar links)
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

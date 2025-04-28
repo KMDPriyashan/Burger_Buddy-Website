@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: "Atma", serif;
+        }
+
+        .full-screen-image {
+            background-image: url('background images/menu back.jpg'); /* Replace with your image URL */
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .text-on-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: -40%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+        .text-on-image h1 {
+            font-size: 50px;
+            margin: 0;
+            color: #FD8908;
+        }
+        .text-on-image h2 {
+            font-size: 150px; /* Increased font size */
+            margin: 0;
+        }
+
+        .text-on-image p {
+            font-size: 20px;
+            margin: 25px 0 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center; /* Center the content */
+            align-items: center;
+            background-color: transparent;
+            padding: 10px 20px;
+            z-index: 9999; /* Ensure the navbar is on top */
+            position: relative; /* Make sure it respects z-index */
+            position: absolute;
+        }
+
+        .navbar a {
+            color: #FD8908;
+            text-decoration: none;
+            padding: 10px;
+            display: inline-block;
+            margin-right: 10px; /* Increased gap */
+            font-family: "Atma", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 17px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #FD8908;
+            border-radius: 30px;
+            margin: 10px;
+            padding: 15px;
+            color: black;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .navbar .menu-container {
+            display: flex;
+            justify-content: center; /* Center the container */
+            flex-grow: 1;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 30px; /* Increased gap */
+        }
+
+        .navbar .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .navbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .navbar .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar .auth-links {
+            display: flex;
+            gap: 15px; /* Increased gap */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- nav bar -->
+    <div class="navbar">
+        <a href="home.html" class="logo">Burger Buddy's</a>
+        <div class="menu-container">
+            <div class="menu">
+                <div class="dropdown">
+                    <a href="#">Category</a>
+                    <div class="dropdown-content">
+                        <a href="chicken.html">chicken burger</a>
+                        <a href="vege.html">vegetable burger</a>
+                        <a href="fish.html">fish burger</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Popular</a>
+                    <div class="dropdown-content">
+                        <a href="home.html">Hot Deal</a>
+                        <a href="home.html">Most popular</a>
+                        <a href="combopack.html">Combo pack</a>
+                        <a href="home.html">Why should Try ?</a>
+                    </div>
+                </div>
+                <a href="custermize.html">Custom page</a>
+                <a href="testimonial.html">Testimonial</a>
+                <div class="dropdown">
+                    <a href="about.html">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">Team</a>
+                        <a href="about.html">Story</a>
+                        <a href="about.html">Careers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Full Screen Image with Text -->
+    <div class="full-screen-image">
+        <div class="text-on-image">
+            <h1>Welcome to Burger Buddy's</h1>
+            <h2>Buddy'S List</h2>
+            <p>" Looking for a meal that hits all the right notes? Our chicken burger is not just a treat—it's an experience. Picture this: a perfectly seasoned chicken patty, crispy on the outside and incredibly juicy on the inside, tucked into a freshly toasted bun that's soft yet sturdy enough to hold all that goodness. "</p>
+        </div>
+    </div>
+
+</body>
+</html>

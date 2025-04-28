@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Buddy's</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Parkinsans:wght@300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("d18P5-J36Np9TbmVM"); // Initialize EmailJS only once
+        })();
+    </script>
+</head>
+
+<body>
+    <!-- home page -->
+
+    <div class="navbar">
+        <a href="home.html" class="logo" target="_blank">Burger Buddy's</a>
+        <div class="menu-container">
+            <div class="menu">
+                <div class="dropdown">
+                    <a href="#">Category</a>
+                    <div class="dropdown-content">
+                        <a href="chicken.html" target="_blank" data-notification="meka 1">chicken burger</a>
+                        <a href="vege.html" target="_blank" data-notification="meka 1">vegetable burger</a>
+                        <a href="fish.html" target="_blank" data-notification="meka 1">fish burger</a>
+                        
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Main Elements</a>
+                    <div class="dropdown-content">
+                        <a href="#centered-heading" data-notification="meka 1">Hot Deal</a>
+                        <a href="#centered-heading" data-notification="meka 1">Most populer</a>
+                        <a href="combopack.html" data-notification="meka 1">Combo pack</a>
+                        <a href="#">Why should Try ?</a>
+                    </div>
+                </div>
+                <a href="custermize.html" data-notification="meka 1">Custom page</a>
+                <a href="testimonial.html" data-notification="meka 1">Testimonial</a>
+                <div class="dropdown">
+                    <a href="#">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="about.html" data-notification="meka 1">Contact us</a>
+                        <a href="about.html" data-notification="meka 1">location</a>
+                        <a href="about.html" data-notification="meka 1">FAQ Section</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-links">
+            <a href="login.html" class="auth-link" data-notification="meka 1">Log in</a>
+            <a href="signup.html" class="auth-link" data-notification="meka 1">Sign Up</a>
+            <div class="cart" onclick="toggleCart()">
+                <i class="fa fa-shopping-cart" style="color: #FD8908; font-size: 24px;"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="cart-container" id="cart-container">
+        <h3>Shopping Cart</h3>
+        <div id="cart-items"></div>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button onclick="checkout()" id="checkout-btn">Checkout</button>
+    </div>
+
+    
+
+
+    <div class="section">
+        <div class="heading">
+            <h3>Try To Our</h3>
+            <h1>Burger</h1>
+            <h2>Buddy's</h2>
+            <p>" Burger Buddy's is the ultimate destination for food lovers. Our delicious burgers are crafted with the
+                finest ingredients, ensuring a mouth-watering experience every time. From crispy fries to irresistible
+                desserts, our menu has something to satisfy every craving. "</p>
+            <a href="menu.html" class="btn">Order Now</a>
+        </div>
+        <div class="image">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <img src="background images/main_background.png" alt="Sample Image">
+        </div>
+    </div>
+
+    <div class="social-media">
+        <a href="https://facebook.com" target="_blank">
+            <i class="fa-brands fa-facebook " style="color: #fd8908;"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <i class="fa-brands fa-twitter " style="color: #fd8908;"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <i class="fa-brands fa-instagram " style="color: #fb8909;"></i>
+        </a>
+    </div>
+
+    <!-- hot deals -->
+
+    <div class="container">
+        <h1 id="centered-heading">Hot Deal</h1>
+        <p class="centered-paragraph">Ladies and gentlemen, burger enthusiasts of all ages, gather around! It's time to
+            dive into the world of mouth-watering, flavor-packed burgers that not only satisfy your hunger but also make
+            your wallet smile. Welcome to the sizzling sensation that is our Hot Deals on burgers! 🥳🍔</p>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="chicken burger/hot 1.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">BBQ Grilled Chicken Burger</h5>
+                    <p class="card-text">Grilled chicken glazed with BBQ sauce and Caramelized onions, cheddar
+                        cheese , crispy lettuce.</p>
+                    <a onclick="addToCart('BBQ Grilled Chicken Burger', 3.19, 'chicken burger/hot 1.png')" id="myLink"
+                        data-notification="meka 1">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="chicken burger/hot 2.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Spicy Grilled Chicken Burger</h5>
+                    <p class="card-text">chili , and spices and pepper
+                        jack cheese, and spicy chipotle sauce.</p>
+                    <a onclick="addToCart('Spicy Grilled Chicken Burger', 19.99, 'chicken burger/hot 2.png')" id="myLink"
+                        data-notification="meka 2">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="chicken burger/hot 3.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Classic Fried Chicken Burger</h5>
+                    <p class="card-text">Crispy deep-fried chicken fillet and Lettuce, tomato, and mayo</p>
+                    <a onclick="addToCart('Classic Fried Chicken Burger', 4.99, 'chicken burger/hot 3.png')" id="myLink"
+                        data-notification="meka 3">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="chicken burger/hot 4.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Spicy Crispy Chicken Burger</h5>
+                    <p class="card-text">crispy fried chicken, spicy sauce, lettuce, tomato slices, cheese, pickles, and a burger bun.</p>
+                    <a onclick="addToCart('Spicy Crispy Chicken Burger', 5.99, 'chicken burger/hot 4.png')" id="myLink"
+                        data-notification="meka 4">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="chicken burger/hot 5.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Mushroom and Black Bean Burger</h5>
+                    <p class="card-text">Black beans blended with sautéed mushrooms and spices and Topped with
+                        caramelized onions and cheddar cheese</p>
+                    <a onclick="addToCart('Mushroom and Black Bean Burger', 6.99, 'chicken burger/hot 5.png')" id="myLink"
+                        data-notification="meka 5">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="chicken burger/hot 6.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Spicy Fish Burger</h5>
+                    <p class="card-text">Fried or grilled fish coated with spicy seasonings and Topped with jalapeños
+                        and chipotle mayo</p>
+                    <a onclick="addToCart('Spicy Fish Burger', 3.99, 'chicken burger/hot 6.png')" id="myLink"
+                        data-notification="meka 6">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="chicken burger/hot 7.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Spicy Tuna Burger</h5>
+                    <p class="card-text">Tuna patty infused with chili flakes and spices and Topped with jalapeños and
+                        sriracha mayo</p>
+                    <a onclick="addToCart('Spicy Tuna Burger', 5.99, 'chicken burger/hot 7.png')" id="myLink"
+                        data-notification="meka 7">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div class="more-meal-container">
+        <a href="menu.html"><button class="more-meal-btn">More Meal</button></a>
+    </div>
+
+
+    <!-- most populer -->
+
+    <div class="container">
+        <h1 id="centered-heading">Most Populer</h1>
+        <p class="centered-paragraph">Indulge in our specially crafted burgers, made with love and the finest
+            ingredients. Dive into these mouth-watering deals and experience a taste sensation like never before! 🍔🎉
+        </p>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="chicken burger/hot 7.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Spicy Tuna Burger</h5>
+                    <p class="card-text">Tuna patty infused with chili flakes and spices and Topped with jalapeños and
+                        sriracha mayo</p>
+                    <a onclick="addToCart('Spicy Tuna Burger', 94.99, 'chicken burger/hot 7.png')" id="myLink"
+                        data-notification="meke 1">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="chicken burger/hot 3.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Classic Fried Chicken Burger</h5>
+                    <p class="card-text">Crispy deep-fried chicken fillet and Lettuce, tomato, and mayo</p>
+                    <a onclick="addToCart('Classic Fried Chicken Burger', 94.99, 'chicken burger/hot 3.png')" id="myLink"
+                        data-notification="meka 2">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="chicken burger/hot 2.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Spicy Grilled Chicken Burger</h5>
+                    <p class="card-text">Grilled chicken marinated in chili, paprika, and spices and Jalapeños, pepper
+                        jack cheese, and spicy chipotle sauce</p>
+                    <a onclick="addToCart('Spicy Grilled Chicken Burger', 94.99, 'chicken burger/hot 2.png')" id="myLink"
+                        data-notification="meka 3">Order Now</a>
+                    <div id="notification" class="hidden"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="more-meal-container">
+        <a href="menu.html"><button class="more-meal-btn">More Meal</button></a>
+    </div>
+
+    <!-- combo packs -->
+
+    <div class="center">
+        <h1>Combo Packs</h1>
+        <p>Feast your eyes on the culinary marvel known as our Burger Combo Packs! When you're ravenous and can't decide
+            between a juicy burger, crispy fries, or a thirst-quenching drink, fear not! Our combo packs are here to
+            rescue you from your hunger dilemma. These divine creations are like the superheroes of fast food—uniting
+            all your favorites into one epic meal !</p>
+    </div>
+    <div class="card-combo">
+        <div class="card-content">
+            <h1> Delicious Comfort Burger pack</h1>
+            <p>Two all-beef patties, special sauce, lettuce, cheese, pickles, and onions on a sesame seed bun. Fries:
+                Medium Fries Drink: Medium Soft Drink (Coca-Cola, Sprite, or Milkshake) Extras: Apple Pie</p>
+            <a onclick="addToCart('Delicious Comfort Burger pack', 94.99, 'combo 1.png')" id="myLink"
+                data-notification="mekae 1">Order Now</a>
+            <div id="notification" class="hidden"></div>
+
+        </div>
+        <div class="card-image">
+            <img src="combo pack images/combo 1.png" alt="Image 1">
+        </div>
+    </div>
+    <div class="card-combo">
+        <div class="card-content">
+            <h1>hotsweety burger pack</h1>
+            <p>Whopper: 100% flame-grilled beef patty, lettuce, tomato, mayonnaise, pickles, and onions on a toasted
+                sesame seed bun. Fries: Medium Fries Drink: Medium Soft Drink (Coca-Cola, Sprite, or Milkshake) Extras:
+                Onion Rings</p>
+            <a onclick="addToCart('hotsweety burger pack', 94.99, 'combo 6.png')" id="myLink"
+                data-notification="meke 2">Order Now</a>
+            <div id="notification" class="hidden"></div>
+
+        </div>
+        <div class="card-image">
+            <img src="combo pack images/combo 6.png" alt="Image 2">
+        </div>
+    </div>
+    <div class="card-combo">
+        <div class="card-content">
+            <h1>Delicious Bigbuzzy burger pack</h1>
+            <p>Dave's Double: Two flame-broiled beef patties, American cheese, crisp lettuce, juicy tomato, and a
+                special sauce on a toasted bun. Fries: Medium Fries Drink: Medium Soft Drink (Coca-Cola, Sprite, or
+                Milkshake) Extras: Chocolate Frosty</p>
+            <a onclick="addToCart('Delicious Bigbuzzy burger pack', 94.99, 'combo 5.png')" id="myLink"
+                data-notification="meke 3">Order Now</a>
+            <div id="notification" class="hidden"></div>
+
+        </div>
+        <div class="card-image">
+            <img src="combo pack images/combo 5.png" alt="Image 3">
+        </div>
+    </div>
+
+    <div class="more-meal-container">
+        <a href="menu.html"><button class="more-meal-btn">More Meal</button></a>
+    </div>
+
+    <!-- why should you try -->
+
+    <div class="center">
+        <h1>Why Should You Try ?</h1>
+        <p>Imagine sinking your teeth into a burger that’s more than just a meal; it’s an experience. Our burgers are
+            crafted with a unique blend of spices and seasonings that create a flavor explosion with every bite. Using
+            only the freshest, highest-quality ingredients—juicy, tender meat, crisp lettuce, ripe tomatoes, and
+            flavorful sauces—we ensure each burger is a culinary masterpiece. Grilled to perfection, each bite delivers
+            a succulent, mouthwatering experience that’s hard to resist. Our unique recipes bring new twists to classic
+            flavors, making our burgers stand out from the rest.</p>
+    </div>
+
+    <div class="image-container">
+        <img src="background images/home_background.png" alt="Centered Image" class="image-h">
+    </div>
+
+    <div class="around-text">
+        <div class="t1">High Quality products</div>
+        <div class="t2">More Cleanly</div>
+        <div class="t3">Best After Services</div>
+        <div class="t4">Best Ratings</div>
+        <div class="t5">Customer Treatment</div>
+        <div class="t6">Fast Delivery</div>
+        <div class="t7">Natural Ingredients</div>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="footer-column">
+            <h3>Category</h3>
+            <ul>
+                <li><a href="chicken.html">Chicken Burger</a></li>
+                <li><a href="vege.html">Vege Burger</a></li>
+                <li><a href="fish.html">Fish Burger</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Home Service</h3>
+            <ul>
+                <li><a href="#">Hot deal</a></li>
+                <li><a href="#">Most Populer</a></li>
+                <li><a href="#">Combo Pack</a></li>
+                <li><a href="#">Why should you try ?</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Social Media Links</h3>
+            <ul>
+                <li><a href="#">Whatsapp</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instegran</a></li>
+                <li><a href="#">Youtube</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>About Us</h3>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Comment On</a></li>
+                <li><a href="#">Testimonial</a></li>
+                <li><a href="#">Careers</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <h3>Subscribe</h3>
+            <input type="text" placeholder="Enter your email">
+            <textarea placeholder="Enter your comment"></textarea>
+            <input type="submit" value="Submit">
+        </div>
+    </footer>
+
+
+    <!-- scroll animation -->
+
+    <script>
+        document.addEventListener('scroll', function () {
+            const slideInElements = document.querySelectorAll('#centered-heading'); // Select ALL elements
+
+            slideInElements.forEach(element => { // Loop through each element
+                const elementPosition = element.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+
+                if (elementPosition < viewportHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+
+        document.addEventListener('scroll', function () {
+            const slideInElements = document.querySelectorAll('.centered-paragraph'); // Select ALL elements
+
+            slideInElements.forEach(element => { // Loop through each element
+                const elementPosition = element.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+
+                if (elementPosition < viewportHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+        document.addEventListener('scroll', function () {
+            const slideInElements = document.querySelectorAll('.center h1'); // Select ALL elements
+
+            slideInElements.forEach(element => { // Loop through each element
+                const elementPosition = element.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+
+                if (elementPosition < viewportHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+
+        document.addEventListener('scroll', function () {
+            const slideInElements = document.querySelectorAll('.center p'); // Select ALL elements
+
+            slideInElements.forEach(element => { // Loop through each element
+                const elementPosition = element.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+
+                if (elementPosition < viewportHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+
+        // cart animation ant function 
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || []; // Load cart from localStorage
+
+        function addToCart(item, price, image) {
+            cart.push({ item, price, image });
+            localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            cartCount.textContent = cart.length;
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((cartItem, index) => {
+                total += cartItem.price;
+                cartItems.innerHTML += `<div class="cart-item">
+                    <img src="${cartItem.image}" alt="${cartItem.item}">
+                    <span>${cartItem.item} - $${cartItem.price.toFixed(2)}</span>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                </div>`;
+            });
+
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            updateCart();
+        }
+
+        function toggleCart() {
+            const cartContainer = document.getElementById('cart-container');
+            cartContainer.style.display = cartContainer.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function checkout() {
+            // Format cart items for email
+            let cartDetails = cart.map(item => `${item.item} - $${item.price.toFixed(2)}`).join("\n");
+
+            // Calculate total price
+            let totalPrice = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+
+            // Send email
+            emailjs.send("service_nrdmwof", "template_kecvg0i", {
+                cart_details: cartDetails,
+                total_price: totalPrice
+            })
+                .then(function (response) {
+                    alert("Order placed successfully! Check your email for details.");
+                    cart = []; // Clear cart
+                    localStorage.removeItem('cart'); // Clear localStorage
+                    updateCart();
+                }, function (error) {
+                    alert("Failed to send order. Please try again.");
+                    console.error("EmailJS Error:", error);
+                });
+        }
+
+        updateCart(); // Initial cart update
+
+    </script>
+
+    <!-- notification Js -->
+    <!-- Notification JS -->
+    <script>
+        document.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                var href = this.getAttribute('href'); // Get the URL of the link
+                var dataNotification = this.getAttribute('data-notification'); // Get the notification text
+    
+                if (href !== '#') { // Only proceed if the link is not a placeholder
+                    if (dataNotification) { // Show notification if data-notification is present
+                        event.preventDefault();
+                        var notification = document.getElementById('notification');
+                        notification.textContent = dataNotification;
+                        notification.classList.remove('hidden');
+                        notification.classList.add('show');
+                        setTimeout(function () {
+                            notification.classList.remove('show');
+                            notification.classList.add('hide');
+                            setTimeout(function () {
+                                notification.classList.add('hidden');
+                                notification.classList.remove('hide');
+                                
+                                if (link.closest('.navbar')) {
+                                    window.location.href = href; // Redirect to the URL after notification is shown (for navbar links)
+                                }
+                            }, 500); // Wait for the slide-out transition to complete before hiding
+                        }, 3000); // Hide notification after 3 seconds
+                    } else {
+                        if (link.closest('.navbar')) {
+                            window.location.href = href; // Redirect to the URL directly if no notification is present (for navbar links)
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    
+    
+
+
+    
+
+
+</body>
+
+</html>

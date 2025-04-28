@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <title>Login page</title>
+    <style>
+        /* Keeping original CSS */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            padding: 10px 20px;
+            z-index: 9999;
+            position: relative;
+            animation: fadeIn 0.8s ease-in-out; /* Added animation */
+        }
+        .navbar a {
+            color: #FD8908;
+            text-decoration: none;
+            padding: 10px;
+            display: inline-block;
+            margin-right: 10px;
+            font-family: "Atma", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 17px;
+            transition: transform 0.3s ease, color 0.3s ease; /* Added transition */
+        }
+        .navbar a:hover {
+            transform: translateY(-3px);
+            color: #ff6b00;
+        }
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #FD8908;
+            border-radius: 30px;
+            margin: 10px;
+            padding: 15px;
+            color: black;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+            transition: transform 0.4s ease, box-shadow 0.4s ease; /* Added transition */
+        }
+        .navbar .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(253, 137, 8, 0.4);
+        }
+        .navbar .menu-container {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .navbar .menu {
+            display: flex;
+            gap: 25px;
+        }
+        .navbar .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .navbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .navbar .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar .dropdown-content a:hover {
+            background-color: #FD890847;
+            transform: translateX(5px);
+        }
+        .navbar .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .navbar .auth-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            min-height: 80vh;
+        }
+        .left-side {
+            position: relative;
+            flex: 1;
+            margin-top: 20px;
+            animation: slideInLeft 1s ease-out; /* Added animation */
+        }
+        .left-side img {
+            position: relative;
+            width: 95%;
+            height: auto;
+            margin-top: -90px;
+            transition: transform 0.6s ease; /* Added transition */
+        }
+        .left-side:hover img {
+            transform: scale(1.03);
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #FD8908;
+            opacity: 0.2;
+            transition: transform 1.5s ease, opacity 1.5s ease; /* Added transition */
+        }
+        .circle1 {
+            width: 300px;
+            height: 300px;
+            top: 150px;
+            left: 35px;
+            animation: pulse 6s infinite alternate; /* Added animation */
+        }
+        .circle2 {
+            width: 250px;
+            height: 250px;
+            bottom: 25px;
+            right: 50px;
+            top: 12px;
+            left: 320px;
+            animation: pulse 7s 0.5s infinite alternate; /* Added animation */
+        }
+        .right-side {
+            flex: 1;
+            text-align: center;
+            padding: 0 -20px;
+            margin-top: -170px;
+            animation: slideInRight 1s ease-out; /* Added animation */
+        }
+        .right-side h3 {
+            margin-top: 60px;
+            margin-bottom: 10px;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+            font-style: normal;
+            color: #FD8908;
+            font-size: 80px;
+            animation: popIn 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67); /* Added animation */
+        }
+        .right-side p {
+            margin-bottom: 20px;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            animation: fadeIn 1s ease; /* Added animation */
+        }
+        input::placeholder{
+            color: black;
+            opacity: 0.6;
+        }
+        
+        /* Updated input styles */
+        .right-side input[type="text"], 
+        .right-side input[type="password"] {
+            width: 80%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid rgba(0,0,0,0.2);
+            border-radius: 15px;
+            background-color: #fd8b0847;
+            color: black;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 rgba(253, 137, 8, 0.1);
+            opacity: 0;
+            transform: translateX(20px);
+            animation: slideInForm 0.5s ease forwards;
+        }
+        .right-side input:nth-child(1) { animation-delay: 0.1s; }
+        .right-side input:nth-child(2) { animation-delay: 0.2s; }
+        
+        .right-side input:focus {
+            outline: none;
+            border-color: #FD8908;
+            box-shadow: 0 0 10px rgba(253, 137, 8, 0.3);
+            transform: scale(1.02);
+        }
+        
+        /* Updated submit button */
+        .btn-login {
+            padding: 10px 30px;
+            border: none;
+            border-radius: 15px;
+            background-color: #FD8908;
+            color: black;
+            cursor: pointer;
+            margin-left: -87%;
+            font-family: "Atma", serif;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 0.5s ease 0.7s forwards;
+            box-shadow: 0 4px 15px rgba(253, 137, 8, 0.3);
+        }
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(253, 137, 8, 0.4);
+        }
+        .btn-login:active {
+            transform: translateY(1px);
+        }
+        .btn-login::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        .btn-login:hover::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        /* Error message style */
+        .error-message {
+            color: #f44336;
+            margin: 10px 0;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+        }
+        
+        /* Animation keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { 
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from { 
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInForm {
+            from { 
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            70% {
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.2;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.25;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                opacity: 1;
+                transform: scale(0, 0);
+                transform-origin: center;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(20, 20);
+                transform-origin: center;
+            }
+        }
+        
+        /* Page transition animation */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #FD8908;
+            z-index: 10000;
+            transform: translateY(100%);
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .page-transition.active {
+            transform: translateY(0);
+        }
+        
+        .page-transition.exit {
+            transform: translateY(-100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="page-transition" id="pageTransition"></div>
+
+    <div class="navbar">
+        <a href="home.html" class="logo">Burger Buddy's</a>
+        <div class="menu-container">
+            <div class="menu">
+                <div class="dropdown">
+                    <a href="#">Category</a>
+                    <div class="dropdown-content">
+                        <a href="chicken.html">chicken burger</a>
+                        <a href="vege.html">vegetable burger</a>
+                        <a href="fish.html">fish burger</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Popular</a>
+                    <div class="dropdown-content">
+                        <a href="home.html">Hot Deal</a>
+                        <a href="home.html">Most populer</a>
+                        <a href="home.html">Combo pack</a>
+                        <a href="home.html">Why should Try ?</a>
+                    </div>
+                </div>
+                <a href="custermize.html">Custom page</a>
+                <a href="testimonial.html">Testimonial</a>
+                <div class="dropdown">
+                    <a href="about.html">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">Team</a>
+                        <a href="about.html">Story</a>
+                        <a href="about.html">Careers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="auth-links">
+            <a href="signup.html">Sign Up</a>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="left-side">
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+            <img src="background images/main_background.png" alt="Your Image">
+        </div>
+        <div class="right-side">
+            <h3>Burger Buddy's</h3>
+            <p>Welcome back! Log in to your account to access all your personalized features and enjoy a seamless experience. If you're new here, don't worry! Just sign up to get started.</p>
+            <div id="loginForm">
+                <input type="text" id="username" placeholder="Email">
+                <input type="password" id="password" placeholder="Password">
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+                <p style="width: 500px; text-align: left;">To ensure a smooth and accurate process, please make sure to add the correct details. Thank you for your cooperation!</p>
+                <button class="btn-login" id="loginBtn">Login</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginBtn = document.getElementById('loginBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            const pageTransition = document.getElementById('pageTransition');
+            
+            // Create page transition animation when arriving from signup page
+            if (document.referrer.includes('signup.html')) {
+                pageTransition.classList.add('active');
+                setTimeout(() => {
+                    pageTransition.classList.add('exit');
+                }, 300);
+                setTimeout(() => {
+                    pageTransition.classList.remove('active', 'exit');
+                }, 1000);
+            }
+            
+            // Login button click handler
+            loginBtn.addEventListener('click', function() {
+                const email = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value;
+                
+                // Validate form
+                if (!email || !password) {
+                    showError('Please fill in all fields');
+                    return;
+                }
+                
+                // Check if user data exists in localStorage
+                const storedUserData = localStorage.getItem('userData');
+                if (!storedUserData) {
+                    showError('User not found. Please sign up first.');
+                    return;
+                }
+                
+                // Parse the stored user data
+                const userData = JSON.parse(storedUserData);
+                
+                // Check if credentials match
+                if (userData.email === email && userData.password === password) {
+                    // Success - show transition and redirect to home page
+                    pageTransition.classList.add('active');
+                    
+                    // Set login status in localStorage
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('currentUser', JSON.stringify({
+                        firstName: userData.firstName,
+                        lastName: userData.lastName,
+                        email: userData.email
+                    }));
+                    
+                    setTimeout(() => {
+                        window.location.href = 'home.html';
+                    }, 500);
+                } else {
+                    showError('Invalid email or password. Please try again.');
+                }
+            });
+            
+            // Function to show error message
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+                // Shake the form slightly for better feedback
+                const loginForm = document.getElementById('loginForm');
+                loginForm.style.animation = 'none';
+                setTimeout(() => {
+                    loginForm.style.animation = 'shake 0.5s ease';
+                }, 10);
+            }
+            
+            // Add shake animation for error feedback
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

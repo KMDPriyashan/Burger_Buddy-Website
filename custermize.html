@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* All your existing CSS remains unchanged */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: "Atma", serif;
+            background-color: black;
+        }
+
+        .full-screen-image {
+            background-image: url('background images/customize background.jpg');
+            /* Replace with your image URL */
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .text-on-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: -40%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+        .text-on-image h1 {
+            font-size: 50px;
+            margin: 0;
+            color: #FD8908;
+        }
+
+        .text-on-image h2 {
+            font-size: 120px;
+            /* Increased font size */
+
+            margin: 0;
+        }
+
+        .text-on-image p {
+            font-size: 18px;
+            margin: 25px 0 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            /* Center the content */
+            align-items: center;
+            background-color: transparent;
+            padding: 10px 20px;
+            z-index: 9999;
+            /* Ensure the navbar is on top */
+            position: relative;
+            /* Make sure it respects z-index */
+            position: absolute;
+        }
+
+        .navbar a {
+            color: #FD8908;
+            text-decoration: none;
+            padding: 10px;
+            display: inline-block;
+            margin-right: 10px;
+            /* Increased gap */
+            font-family: "Atma", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 17px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #FD8908;
+            border-radius: 30px;
+            margin: 10px;
+            padding: 15px;
+            color: black;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .navbar .menu-container {
+            display: flex;
+            justify-content: center;
+            /* Center the container */
+            flex-grow: 1;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 30px;
+            /* Increased gap */
+
+        }
+
+        .navbar .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .navbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            transition: opacity 0.3s ease-in-out;
+
+        }
+
+        .navbar .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar .auth-links {
+            display: flex;
+            gap: 15px;
+            /* Increased gap */
+        }
+
+        .foot-content h1 {
+            text-align: center;
+            font-size: 100px;
+            color: #FD8908;
+        }
+
+        .foot-content p {
+            text-align: center;
+            font-size: 20px;
+            padding-left: 10%;
+            padding-right: 10%;
+            margin-top: -50px;
+            margin-bottom: 5%;
+            color: white;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-media a {
+            text-decoration: none;
+        }
+
+        .social-media i {
+            font-size: 20px;
+            margin-top: -120px;
+            margin-bottom: 10%;
+        }
+
+        .container-heading p {
+            color: white;
+            width: 1100px;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .container-heading h2 {
+            color: #fb8909;
+            width: 1100px;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 20px;
+            font-size: 50px;
+            font-weight: 600;
+        }
+
+        .text-field-1 {
+            width: 580px;
+            height: 40px;
+            border-radius: 12px;
+            border: 2px solid #fb8909;
+            color: white;
+            background: none;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            padding: 0 10px;
+        }
+
+        .text-field-2 {
+            width: 350px;
+            height: 40px;
+            border-radius: 12px;
+            border: 2px solid #fb8909;
+            color: white;
+            background: none;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            padding: 0 10px;
+        }
+
+        .text-field-3 {
+            width: 970px;
+            height: 40px;
+            border-radius: 12px;
+            border: 2px solid #fb8909;
+            color: white;
+            background: none;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            padding: 0 10px;
+        }
+
+
+
+        .form-content h2 {
+            color: white;
+            font-weight: 500;
+        }
+
+        .form-1 {
+            display: flex;
+            justify-content: center;
+            /* Center the content horizontally within the container */
+            gap: 20px;
+            /* Adjust the gap as needed */
+            align-items: center;
+            /* Center the content vertically within the container */
+            margin: 0 auto;
+            /* Center the section itself */
+            max-width: 1200px;
+            /* Adjust the maximum width as needed */
+        }
+
+        .form-content {
+            flex: 1;
+            /* Make the items take equal space */
+            min-width: 200px;
+            /* Optional: Set a minimum width for the items */
+        }
+
+        .form-content-s h2 {
+            color: white;
+            font-weight: 500;
+        }
+
+        .form-content-s p {
+            color: #fb8909;
+            margin-top: 10px;
+        }
+
+        .form-content p {
+            color: #fb8909;
+            margin-top: 10px;
+        }
+
+        .form-2 {
+            margin-left: 150px;
+        }
+
+        .form-3 {
+            display: flex;
+            justify-content: center;
+            /* Center the content horizontally within the container */
+            gap: 20px;
+            /* Adjust the gap as needed */
+            align-items: center;
+            /* Center the content vertically within the container */
+            margin: 0 auto;
+            /* Center the section itself */
+            max-width: 1200px;
+            /* Adjust the maximum width as needed */
+        }
+
+        .form-4 {
+            margin-left: 150px;
+            margin-top: 55px;
+        }
+
+        .form-5 {
+            display: flex;
+            justify-content: center;
+            /* Center the content horizontally within the container */
+            gap: 20px;
+            /* Adjust the gap as needed */
+            align-items: center;
+            /* Center the content vertically within the container */
+            margin: 0 auto;
+            /* Center the section itself */
+            max-width: 1200px;
+            /* Adjust the maximum width as needed */
+        }
+
+        .form-6 {
+            margin-left: 150px;
+            margin-top: 55px;
+        }
+
+        .form-4 .form-content input {
+            width: 750px;
+        }
+
+        .selection {
+            margin-left: 10%;
+            margin-top: 60px;
+        }
+
+        .selection .dropdown {
+            width: 240px;
+            height: 50px;
+            border-radius: 12px;
+            border: 2px solid #fb8909;
+            color: white;
+            background-color: #fb8909;
+            appearance: none;
+            padding: 10px;
+            font-size: 18px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-left: 30px;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+        }
+
+        .selection .dropdown:hover,
+        .selection .dropdown:focus {
+            background-color: white;
+            color: #fb8909;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+        }
+
+        .selection .dropdown option {
+            color: black;
+            background-color: white;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+        }
+
+        label {
+            color: white;
+            font-size: 30px;
+        }
+
+        .form-bottum {
+            color: white;
+            width: 1100px;
+            text-align: left;
+            margin: 0 auto;
+            margin-left: 10%;
+            margin-top: 70px;
+            font-size: 20px;
+        }
+
+        .B1 {
+            padding: 12px;
+            padding-left: 25px;
+            padding-right: 25px;
+            border-radius: 12px;
+            background-color: #fb8909;
+            color: white;
+            cursor: pointer;
+            border: 2px solid #fb8909;
+            font-family: "Atma", serif;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .B1:hover {
+            background-color: white;
+            color: #fb8909;
+        }
+
+        .B2 {
+            padding: 12px;
+            padding-left: 25px;
+            padding-right: 25px;
+            border-radius: 12px;
+            margin-left: 20px;
+            background: none;
+            border: 2px solid #fb8909;
+            color: white;
+            cursor: pointer;
+            font-family: "Atma", serif;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .B2:hover {
+            background-color: white;
+            color: #fb8909;
+        }
+
+        .form-btn {
+            margin-left: 10%;
+            margin-bottom: 50px;
+        }
+
+        .form-heading p {
+            text-align: center;
+            color: white;
+            padding-left: 15%;
+            padding-right: 15%;
+        }
+
+        .form-heading h1 {
+            text-align: center;
+            color: white;
+        }
+
+        .form-heading h2 {
+            text-align: center;
+            color: #fb8909;
+            font-size: 80px;
+            margin-top: -20px;
+        }
+
+        .link {
+            color: #FD8908;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Popup Overlay */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Popup Content */
+        .popup {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            transform: scale(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .popup.show {
+            transform: scale(1);
+        }
+
+        .popup h2 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .list-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .list-item:hover {
+            background-color: #e6e6e6;
+        }
+
+        .close-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .close-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Order Summary Styles */
+        .order-summary-popup {
+            background: #222;
+            color: white;
+            border: 2px solid #fb8909;
+        }
+
+        .order-summary-popup h2 {
+            color: #fb8909;
+            border-bottom: 1px solid #fb8909;
+        }
+
+        .summary-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background-color: #333;
+            border-radius: 8px;
+            border-left: 4px solid #fb8909;
+        }
+
+        .summary-item strong {
+            color: #fb8909;
+            display: inline-block;
+            width: 150px;
+        }
+
+        .success-message {
+            background-color: rgba(46, 204, 113, 0.2);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary-close-btn {
+            background: #fb8909;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: "Atma", serif;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        .summary-close-btn:hover {
+            background: white;
+            color: #fb8909;
+        }
+
+        /* Display for input values under form sections */
+        .display-value {
+            background-color: rgba(253, 137, 8, 0.2);
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+            color: white;
+            display: none;
+        }
+        /* Updated Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Order Summary Popup Styles - Updated */
+        .order-summary-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            background: #222;
+            color: white;
+            border: 3px solid #fb8909;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease-in-out;
+            z-index: 1001;
+        }
+
+        .order-summary-popup.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .order-summary-popup h2 {
+            color: #fb8909;
+            border-bottom: 2px solid #fb8909;
+            padding-bottom: 15px;
+            margin-top: 0;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .summary-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #333;
+            border-radius: 8px;
+            border-left: 4px solid #fb8909;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .summary-item strong {
+            color: #fb8909;
+            display: inline-block;
+            width: 170px;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .summary-item span {
+            flex: 1;
+            word-break: break-word;
+        }
+
+        .success-message {
+            background-color: rgba(46, 204, 113, 0.2);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .summary-close-btn {
+            background: #fb8909;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: "Atma", serif;
+            font-weight: 500;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        .summary-close-btn:hover {
+            background: white;
+            color: #fb8909;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .order-summary-popup {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .summary-item strong {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+            
+            .summary-item {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav bar -->
+    <div class="navbar">
+        <a href="home.html" class="logo">Burger Buddy's</a>
+        <div class="menu-container">
+            <div class="menu">
+                <div class="dropdown">
+                    <a href="home.html">Category</a>
+                    <div class="dropdown-content">
+                        <a href="chicken.html">chicken burger</a>
+                        <a href="vege.html">vegetable burger</a>
+                        <a href="fish.html">fish burger</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="home.html">Popular</a>
+                    <div class="dropdown-content">
+                        <a href="home.html">Hot Deal</a>
+                        <a href="home.html">Most popular</a>
+                        <a href="home.html">Combo pack</a>
+                        <a href="home.html">Why should Try ?</a>
+                    </div>
+                </div>
+                <a href="custermize.html">Custom page</a>
+                <a href="testimonial.html">Testimonial</a>
+                <div class="dropdown">
+                    <a href="about.html">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">Team</a>
+                        <a href="about.html">Story</a>
+                        <a href="about.html">Careers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Full Screen Image with Text -->
+    <div class="full-screen-image">
+        <div class="text-on-image">
+            <h1>Welcome to Burger Buddy's</h1>
+            <h2>Customize your choices</h2>
+            <p>" Customized Food (noun): A culinary adventure where your taste buds embark on a rollercoaster ride of
+                epic proportions. It's like playing mad scientist in the kitchen, where sushi can meet tacos, and
+                marshmallows can become best friends with pizza. The only limit is your imagination—and maybe the
+                strength of your stomach! 🍕🍣😄 "</p>
+        </div>
+    </div>
+
+    <!-- container-heading -->
+
+    <div class="container-heading">
+        <p>In the peculiar town of Whimsyville, the annual cheese-rolling contest was underway. Gerald, the town's
+            self-proclaimed cheese connoisseur, had fashioned his own wheel of cheese using a secret blend of mozzarella
+            and mischief. As the cheese rolled down the hill with a mind of its own, it somehow picked up a stray cat, a
+            bewildered squirrel, and an old pair of granny's bloomers that had been hanging out to dry.</p>
+        <h2>Try to our Burger Buddy's</h2>
+    </div>
+
+    <!-- form section -->
+
+    <form id="burgerForm" class="form-content">
+        <div class="form-1">
+            <div class="form-content">
+                <h2>Choice THE Buns</h2>
+                <input type="text" id="bunType" class="text-field-1" placeholder="Type of Bun" required>
+                <div id="bunDisplay" class="display-value"></div>
+                <p>Click <span class="link" id="show-list">here</span> to view Buns of we hava.</p>
+
+                <!-- Popup Overlay -->
+                <div class="popup-overlay" id="popupOverlay">
+                    <div class="popup" id="popup">
+                        <h2> Watch this ! We have Burger Buns</h2>
+                        <div class="list-item">1. Plain White Bun.</div>
+                        <div class="list-item">2. Potato Bun. </div>
+                        <div class="list-item">3. Multigrain Bun.</div>
+                        <div class="list-item">4. Gluten-Free Bun.</div>
+                        <div class="list-item">5. Charcoal Bun.</div>
+                        <button class="close-btn" id="closeBtn">Close</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-content-s">
+                <h2>Specialties</h2>
+                <input type="text" id="bunSpecialty" class="text-field-2" placeholder="Specialties of Bun">
+                <div id="bunSpecialtyDisplay" class="display-value"></div>
+                <p>Enter the bun category</p>
+            </div>
+        </div>
+        <div class="form-2">
+            <div class="form-content">
+                <h2>Choice THE Meets</h2>
+                <input type="text" id="meatType" class="text-field-3" placeholder="Type of meets" required>
+                <div id="meatDisplay" class="display-value"></div>
+                <p>Below are the types of meat owned by our company</p>
+            </div>
+        </div>
+        <div class="form-3">
+            <div class="form-content">
+                <h2>Choice THE Cheese</h2>
+                <input type="text" id="cheeseType" class="text-field-1" placeholder="Type of cheese" required>
+                <div id="cheeseDisplay" class="display-value"></div>
+            </div>
+            <div class="form-content-s">
+                <h2>Bransds </h2>
+                <input type="text" id="cheeseBrand" class="text-field-2" placeholder="Type of brands">
+                <div id="cheeseBrandDisplay" class="display-value"></div>
+                <p>Enter the company brands of selling cheese</p>
+            </div>
+        </div>
+
+        <div class="selection">
+            <label for="dropdown">Choose a Aditional leaves Layer:</label>
+            <select id="dropdown" class="dropdown">
+                <option value="Lettuce">Lettuce (Crisp Leaves)</option>
+                <option value="Iceberg">Iceberg Lettuce</option>
+                <option value="Butterhead">Butterhead Lettuce</option>
+                <option value="RedLeaf">Red Leaf Lettuce</option>
+            </select>
+            <div id="leavesDisplay" class="display-value" style="margin-top: 20px; margin-left: 30px; width: 240px;">
+            </div>
+        </div>
+        <div class="form-4">
+            <div class="form-content">
+                <h2>Choice THE Lettuce and Vegetables</h2>
+                <input type="text" id="vegetables" class="text-field-3"
+                    placeholder="Type of Lettuce and Vegetables (tomato slices, onions, or pickles)" required>
+                <div id="vegetablesDisplay" class="display-value"></div>
+                <p>Enter the types of Lettuce and Vegetables should be include, </p>
+            </div>
+        </div>
+        <div class="form-5">
+            <div class="form-content">
+                <h2>Choice THE Sauce/Condiments</h2>
+                <input type="text" id="sauceType" class="text-field-1" placeholder="Type of Sauce/Condiments" required>
+                <div id="sauceDisplay" class="display-value"></div>
+            </div>
+            <div class="form-content-s">
+                <h2>Specialties</h2>
+                <input type="text" id="sauceSpecialty" class="text-field-2"
+                    placeholder="Type of Sauce/Condiments (Hot sauce)">
+                <div id="sauceSpecialtyDisplay" class="display-value"></div>
+                <p>Enter the bun category</p>
+            </div>
+        </div>
+        <div class="form-6">
+            <div class="form-content">
+                <h2>Additional Ingrediants </h2>
+                <input type="text" id="additionalIngredients" class="text-field-3"
+                    placeholder="Type of Additional Ingrediants">
+                <div id="additionalIngredientsDisplay" class="display-value"></div>
+                <p>Below are the types of Additional Ingrediants owned by our company</p>
+            </div>
+        </div>
+        <div class="form-bottum">
+            <p>By the time Gerald reached the finish line, he had not only won the contest but also inadvertently
+                created Whimsyville's newest—and most unusual—pet parade. and then submit your requirement for that
+                customize burger's within our burger buddy's</p>
+        </div>
+        <div class="form-btn">
+            <button type="button" id="submitCustomBurger" class="B1">Submit</button>
+            <button type="button" id="resetCustomBurger" class="B2">Reset</button>
+        </div>
+
+        <div class="form-heading">
+            <h1>Try TO Our !</h1>
+            <p>Hold onto your taste buds because we've got something exciting cooking up just for you! Introducing the
+                NEW and IMPROVED Buddy's Pack—your one-way ticket to a flavor fiesta that will have your taste buds
+                doing the cha-cha!</p>
+            <h2>BUDDY'S Pack</h2>
+        </div>
+        <div class="form-2">
+            <div class="form-content">
+                <h2>Choice Your Chicken Burger</h2>
+                <input type="text" id="chickenBurger" class="text-field-3" placeholder="Type of Chicken Burger">
+                <div id="chickenBurgerDisplay" class="display-value"></div>
+                <p>Below are the types of meat owned by our company</p>
+            </div>
+        </div>
+        <div class="form-1">
+            <div class="form-content">
+                <h2>Choice Your Vege Burger</h2>
+                <input type="text" id="vegeBurger" class="text-field-1" placeholder="Type of Vege Burger">
+                <div id="vegeBurgerDisplay" class="display-value"></div>
+            </div>
+            <div class="form-content-s">
+                <h2>Additionaly</h2>
+                <input type="text" id="vegeAdditional" class="text-field-2"
+                    placeholder="With (union/toppings and etc..)">
+                <div id="vegeAdditionalDisplay" class="display-value"></div>
+                <p>Enter the bun category</p>
+            </div>
+        </div>
+        <div class="form-2">
+            <div class="form-content">
+                <h2>Choice THE Fish Burger</h2>
+                <input type="text" id="fishBurger" class="text-field-3" placeholder="Type of fish burger">
+                <div id="fishBurgerDisplay" class="display-value"></div>
+                <p>Below are the types of fish burger owned by our company</p>
+            </div>
+        </div>
+        <div class="form-1">
+            <div class="form-content">
+                <h2>Choice THE Beverages</h2>
+                <input type="text" id="beverageType" class="text-field-1" placeholder="Type of Beverages">
+                <div id="beverageDisplay" class="display-value"></div>
+            </div>
+            <div class="form-content-s">
+                <h2>Brands of Beverages</h2>
+                <input type="text" id="beverageBrand" class="text-field-2"
+                    placeholder="Type of brand of selling Beverages">
+                <div id="beverageBrandDisplay" class="display-value"></div>
+                <p>Enter the type of brands</p>
+            </div>
+        </div>
+
+        <div class="form-bottum">
+            <p>By the time Gerald reached the finish line, he had not only won the contest but also inadvertently
+                created Whimsyville's newest—and most unusual—pet parade. and then submit your requirement for that
+                customize burger's within our burger buddy's</p>
+        </div>
+        <div class="form-btn">
+            <button type="button" id="submitBuddyPack" class="B1">Submit</button>
+            <button type="button" id="resetBuddyPack" class="B2">Reset</button>
+        </div>
+    </form>
+
+    <!-- Order Summary Popup -->
+    <div class="popup-overlay" id="summaryOverlay">
+        <div class="order-summary-popup" id="summaryPopup">
+            <div class="success-message">Order successfully submitted!</div>
+            <h2>Your Order Summary</h2>
+            <div id="orderSummaryContent"></div>
+            <button class="summary-close-btn" id="summarySaveBtn">Save & Close</button>
+        </div>
+    </div>
+
+    <!-- fotter content -->
+
+    <div class="foot-content">
+        <h1>Get More Be Happy !</h1>
+        <p>"Can I order a burger so enormous that not even my biggest worries could take a bite out of it? I'm talking
+            about a burger so colossal that it would take me a week just to finish the toppings! Because let's be
+            honest, a truly massive burger is the perfect antidote for any bad day. 🍔😆"</p>
+    </div>
+
+    <script>
+        // Popup functionality
+        const showListLink = document.getElementById('show-list');
+        const popupOverlay = document.getElementById('popupOverlay');
+        const popup = document.getElementById('popup');
+        const closeBtn = document.getElementById('closeBtn');
+
+        // Order Summary popup elements
+        const summaryOverlay = document.getElementById('summaryOverlay');
+        const summaryPopup = document.getElementById('summaryPopup');
+        const summarySaveBtn = document.getElementById('summarySaveBtn');
+
+        // Open popup
+        showListLink.addEventListener('click', () => {
+            popupOverlay.style.display = 'flex';
+            setTimeout(() => {
+                popup.classList.add('show');
+                logUserActivity(); // Log user activity when popup is shown
+            }, 10); // Slight delay for smooth animation
+        });
+
+        // Close popup
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default behavior
+            popup.classList.remove('show');
+            setTimeout(() => {
+                popupOverlay.style.display = 'none';
+            }, 300); // Match transition duration
+        });
+
+        // Close popup when clicking outside
+        popupOverlay.addEventListener('click', (e) => {
+            if (e.target === popupOverlay) {
+                e.preventDefault(); // Prevent default behavior
+                popup.classList.remove('show');
+                setTimeout(() => {
+                    popupOverlay.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        // Log when a user views the list (for tracking)
+        function logUserActivity() {
+            console.log('User viewed the information list at: ' + new Date().toString());
+            // In a real application, you might send this to your server
+            // Example: fetch('/api/log-activity', { method: 'POST', body: JSON.stringify({ activity: 'viewed_bun_list' }) });
+        }
+
+        // Input field handling
+        const inputFields = [
+            { inputId: 'bunType', displayId: 'bunDisplay' },
+            { inputId: 'bunSpecialty', displayId: 'bunSpecialtyDisplay' },
+            { inputId: 'meatType', displayId: 'meatDisplay' },
+            { inputId: 'cheeseType', displayId: 'cheeseDisplay' },
+            { inputId: 'cheeseBrand', displayId: 'cheeseBrandDisplay' },
+            { inputId: 'vegetables', displayId: 'vegetablesDisplay' },
+            { inputId: 'sauceType', displayId: 'sauceDisplay' },
+            { inputId: 'sauceSpecialty', displayId: 'sauceSpecialtyDisplay' },
+            { inputId: 'additionalIngredients', displayId: 'additionalIngredientsDisplay' },
+            { inputId: 'chickenBurger', displayId: 'chickenBurgerDisplay' },
+            { inputId: 'vegeBurger', displayId: 'vegeBurgerDisplay' },
+            { inputId: 'vegeAdditional', displayId: 'vegeAdditionalDisplay' },
+            { inputId: 'fishBurger', displayId: 'fishBurgerDisplay' },
+            { inputId: 'beverageType', displayId: 'beverageDisplay' },
+            { inputId: 'beverageBrand', displayId: 'beverageBrandDisplay' }
+        ];
+
+        // Add event listeners to display input values in the display boxes
+        inputFields.forEach(field => {
+            const inputElement = document.getElementById(field.inputId);
+            const displayElement = document.getElementById(field.displayId);
+
+            inputElement.addEventListener('input', () => {
+                if (inputElement.value.trim() !== '') {
+                    displayElement.textContent = inputElement.value;
+                    displayElement.style.display = 'block';
+                } else {
+                    displayElement.style.display = 'none';
+                }
+            });
+        });
+
+        // Dropdown handling
+        const dropdown = document.getElementById('dropdown');
+        const leavesDisplay = document.getElementById('leavesDisplay');
+
+        dropdown.addEventListener('change', () => {
+            leavesDisplay.textContent = dropdown.value;
+            leavesDisplay.style.display = 'block';
+        });
+
+        // Form submission for Custom Burger
+        document.getElementById('submitCustomBurger').addEventListener('click', () => {
+            // Check required fields
+            const requiredFields = ['bunType', 'meatType', 'cheeseType', 'vegetables', 'sauceType'];
+            let isValid = true;
+
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    field.style.borderColor = 'red';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#fb8909';
+                }
+            });
+
+            if (!isValid) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            // Collect custom burger data
+            const customBurgerData = {
+                bunType: document.getElementById('bunType').value,
+                bunSpecialty: document.getElementById('bunSpecialty').value || 'None',
+                meatType: document.getElementById('meatType').value,
+                cheeseType: document.getElementById('cheeseType').value,
+                cheeseBrand: document.getElementById('cheeseBrand').value || 'Standard',
+                leaves: document.getElementById('dropdown').value,
+                vegetables: document.getElementById('vegetables').value,
+                sauceType: document.getElementById('sauceType').value,
+                sauceSpecialty: document.getElementById('sauceSpecialty').value || 'None',
+                additionalIngredients: document.getElementById('additionalIngredients').value || 'None'
+            };
+
+            // Show order summary
+            showOrderSummary('Custom Burger', customBurgerData);
+        });
+
+        // Form submission for Buddy's Pack
+        document.getElementById('submitBuddyPack').addEventListener('click', () => {
+            // Collect Buddy's Pack data
+            const buddyPackData = {
+                chickenBurger: document.getElementById('chickenBurger').value || 'None selected',
+                vegeBurger: document.getElementById('vegeBurger').value || 'None selected',
+                vegeAdditional: document.getElementById('vegeAdditional').value || 'None',
+                fishBurger: document.getElementById('fishBurger').value || 'None selected',
+                beverageType: document.getElementById('beverageType').value || 'None selected',
+                beverageBrand: document.getElementById('beverageBrand').value || 'Standard'
+            };
+
+            // Check if at least one item is selected
+            const hasSelection = Object.values(buddyPackData).some(value => value !== 'None selected' && value !== 'None');
+
+            if (!hasSelection) {
+                alert('Please select at least one item for your Buddy\'s Pack');
+                return;
+            }
+
+            // Show order summary
+            showOrderSummary('Buddy\'s Pack', buddyPackData);
+        });
+
+        // Show order summary popup - Updated
+        function showOrderSummary(orderType, data) {
+            const summaryContent = document.getElementById('orderSummaryContent');
+            summaryContent.innerHTML = '';
+
+            // Add order type heading
+            const orderTypeHeading = document.createElement('div');
+            orderTypeHeading.classList.add('summary-item');
+            orderTypeHeading.innerHTML = `<strong>Order Type:</strong> <span>${orderType}</span>`;
+            summaryContent.appendChild(orderTypeHeading);
+
+            // Add order details
+            Object.entries(data).forEach(([key, value]) => {
+                if (value && value !== 'None' && value !== 'None selected') {
+                    const item = document.createElement('div');
+                    item.classList.add('summary-item');
+
+                    // Format the key for display (camelCase to Title Case with spaces)
+                    const formattedKey = key.replace(/([A-Z])/g, ' $1')
+                        .replace(/^./, str => str.toUpperCase());
+
+                    item.innerHTML = `<strong>${formattedKey}:</strong> <span>${value}</span>`;
+                    summaryContent.appendChild(item);
+                }
+            });
+
+            // Show the popup
+            summaryOverlay.style.display = 'flex';
+            setTimeout(() => {
+                summaryPopup.classList.add('show');
+            }, 10);
+        }
+
+        // Close summary popup
+        summarySaveBtn.addEventListener('click', () => {
+            summaryPopup.classList.remove('show');
+            setTimeout(() => {
+                summaryOverlay.style.display = 'none';
+            }, 300);
+        });
+
+        // Reset forms
+        document.getElementById('resetCustomBurger').addEventListener('click', () => {
+            resetForm('customBurger');
+        });
+
+        document.getElementById('resetBuddyPack').addEventListener('click', () => {
+            resetForm('buddyPack');
+        });
+
+        function resetForm(formType) {
+            let fieldsToReset = [];
+
+            if (formType === 'customBurger') {
+                fieldsToReset = ['bunType', 'bunSpecialty', 'meatType', 'cheeseType', 'cheeseBrand',
+                    'vegetables', 'sauceType', 'sauceSpecialty', 'additionalIngredients'];
+            } else if (formType === 'buddyPack') {
+                fieldsToReset = ['chickenBurger', 'vegeBurger', 'vegeAdditional',
+                    'fishBurger', 'beverageType', 'beverageBrand'];
+            }
+
+            // Reset input fields and their displays
+            fieldsToReset.forEach(fieldId => {
+                const input = document.getElementById(fieldId);
+                const display = document.getElementById(fieldId + 'Display');
+
+                if (input) {
+                    input.value = '';
+                    input.style.borderColor = '#fb8909';
+                }
+
+                if (display) {
+                    display.textContent = '';
+                    display.style.display = 'none';
+                }
+            });
+
+            // Reset dropdown if in custom burger form
+            if (formType === 'customBurger') {
+                const dropdown = document.getElementById('dropdown');
+                const leavesDisplay = document.getElementById('leavesDisplay');
+
+                dropdown.selectedIndex = 0;
+                leavesDisplay.textContent = '';
+                leavesDisplay.style.display = 'none';
+            }
+        }
+
+        // Close summary popup when clicking outside
+        summaryOverlay.addEventListener('click', (e) => {
+            if (e.target === summaryOverlay) {
+                e.preventDefault();
+                summaryPopup.classList.remove('show');
+                setTimeout(() => {
+                    summaryOverlay.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        // Initialize displays for all form elements
+        window.addEventListener('DOMContentLoaded', () => {
+            // Hide all display elements initially
+            document.querySelectorAll('.display-value').forEach(element => {
+                element.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

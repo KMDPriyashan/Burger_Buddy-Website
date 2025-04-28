@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-image: url('background images/about background.jpg'); /* Ensure the correct relative path */
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center; /* Center the content */
+            align-items: center;
+            background-color: transparent;
+            padding: 10px 20px;
+            z-index: 9999; /* Ensure the navbar is on top */
+            position: relative; /* Make sure it respects z-index */
+            position: absolute;
+        }
+       
+        .navbar a {
+            color: #FD8908;
+            text-decoration: none;
+            padding: 10px;
+            display: inline-block;
+            margin-right: 10px; /* Increased gap */
+            font-family: "Atma", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 17px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #FD8908;
+            border-radius: 30px;
+            margin: 10px;
+            padding: 15px;
+            color: black;
+            font-family: "Atma", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .navbar .menu-container {
+            display: flex;
+            justify-content: center; /* Center the container */
+            flex-grow: 1;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 30px; /* Increased gap */
+            
+        }
+
+        .navbar .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .navbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            transition: opacity 0.3s ease-in-out;
+            
+        }
+
+        .navbar .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar .auth-links {
+            display: flex;
+            gap: 15px; /* Increased gap */
+        }
+        .left-content, .right-content {
+            color: white; /* Ensures text is visible against the background */
+            font-family: "Atma", serif;
+            font-size: 15px;
+            font-weight: 400;
+            position: absolute;
+        }
+        .left-content {
+            left: 50px; /* Position on the left side */
+            top: 100px; /* Adjust as needed */
+        }
+        .left-content h1{
+            font-size: 50px;
+            padding-bottom: -10%;
+        }
+        .left-content h3{
+            color: #FD8908;
+            line-height: 5px;
+            margin-left: 15%;
+            font-size: 30px;
+        }
+        .left-content p{
+            width: 600px;
+        }
+        .right-content {
+            right: 20px; /* Position on the right side */
+            top: 70px; /* Adjust as needed */
+            left: 70%;
+        }
+        .right-content h2{
+            font-size: 40px;
+        }
+        .right-content h3{
+            margin-left: -30%;
+            margin-top: 10px;
+            color: #FD8908;
+            font-weight: 450;
+        }
+        .q2{
+            margin-left: -33%;
+        }
+        .q2 p{
+            width: 500px;
+        }
+        /* contact set */
+        .contact-section {
+            padding: 20px;
+            font-family: "Atma", serif;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            margin-left: 15%;
+        }
+        .contact-item i {
+            font-size: 15px;
+            color: #FD8908;
+            margin-right: 10px;
+        }
+        .contact-item p {
+            font-size: 16px;
+            margin: 0;
+        }
+        .contact-item a {
+            text-decoration: none;
+            color: white;
+        }
+        .contact-email input{
+            border-radius: 20px;
+            font-family: "Atma", serif;
+            max-width: 600px;
+            width: 300px;
+            height: 40px;
+            border: none;
+            margin-left: 10%;
+        }
+        .email-btn{
+            color: white;
+            background-color: #FD8908;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 20px;
+            margin-left: 15px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="home.html" class="logo">Burger Buddy's</a>
+        <div class="menu-container">
+            <div class="menu">
+                <div class="dropdown">
+                    <a href="home.html">Category</a>
+                    <div class="dropdown-content">
+                        <a href="chicken.html">chicken burger</a>
+                        <a href="vege.html">vegetable burger</a>
+                        <a href="fish.html">fish burger</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="home.html">Popular</a>
+                    <div class="dropdown-content">
+                        <a href="home.html">Hot Deal</a>
+                        <a href="home.html">Most popular</a>
+                        <a href="home.html">Combo pack</a>
+                        <a href="home.html">Why should Try ?</a>
+                    </div>
+                </div>
+                <a href="custermize.html">Custom page</a>
+                <a href="testimonial.html">Testimonial</a>
+                <div class="dropdown">
+                    <a href="about.html">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">Team</a>
+                        <a href="about.html">Story</a>
+                        <a href="about.html">Careers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left-content">
+        <h1>Welcome to Burger Buddy's</h1>
+        <h3>This Is About Us..</h3>
+        <p>Hey burger fans! 🍔 Want to join the ultimate burger club? Follow us on social media for drool-worthy pics, behind-the-scenes fun, and burger puns galore. Hit that follow button and let the burger fun begin! 🥳🍟</p>
+        <div class="contact-section">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>No : 219/A Vijayarama Road , Ehalagama Gampaha</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <p>072 470 9902 / 033 223 9684</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p>BurgerBuddys@gmail.com / Adminburgerb.official@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <p><a href="https://www.burgerbuddys.com" target="_blank">Click Here for Visit us</a></p>
+            </div>
+        </div>
+        <div class="contact-email">
+            <input type="text" name="comment" placeholder="Enter your Question">
+            <button class="email-btn">Send</button>
+        </div>
+    </div>
+    <div class="right-content">
+        <h2>FAQ Section</h2>
+        <h3>1. Do I need to make a reservation, or can I just walk in ?</h3>
+        <p>" While walk-ins are always welcome, we recommend making a reservation, especially during peak hours and weekends, to ensure you get a table. "</p>
+        <div class="q2">
+            <h3>2. Do you offer delivery services ?</h3>
+            <p>" Yes, we offer delivery services through our website and various delivery partners like UberEats and DoorDash. "</p>
+        </div>
+        <div class="q3">
+            <h3>3. What are your opening hours?</h3>
+            <p>" We are open Monday through Friday from 8 AM to 10 PM and on weekends from 8 AM to 12 PM. "</p>
+        </div>
+        <div class="q2">
+            <h3>4. Can I customize my burger order ?</h3>
+            <p>" Absolutely! We love when customers get creative with their orders. You can customize your burger to your liking with any of our available toppings and sauces. "</p>
+        </div>
+    </div>
+</body>
+</html>
