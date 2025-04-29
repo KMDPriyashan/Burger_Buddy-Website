@@ -859,8 +859,8 @@ input[type="submit"]:hover {
     }
 }
 #notification {
-    background-color: #FD8908;
-    color: black;
+    background-color: black;
+    color: white;
     font-family: "Atma", serif;
     font-optical-sizing: auto;
     font-weight: 400;;
